@@ -1,0 +1,329 @@
+@font-face {
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Poppins';
+  src: local('Poppins Bold'), local('Poppins-Bold'),
+    url('subset-Poppins-Bold.woff2') format('woff2'),
+    url('subset-Poppins-Bold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: normal;
+  font-family: 'Poppins';
+  src: local('Poppins Italic'), local('Poppins-Italic'),
+    url('subset-Poppins-Italic.woff2') format('woff2'),
+    url('subset-Poppins-Italic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'Poppins';
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url('subset-Poppins-Regular.woff2') format('woff2'),
+    url('subset-Poppins-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: 'Barlow';
+  src: local('Barlow Medium'), local('Barlow-Medium'),
+    url('subset-Barlow-Medium.woff2') format('woff2'),
+    url('subset-Barlow-Medium.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  font-family: 'Barlow';
+  src: local('Barlow SemiBold'), local('Barlow-SemiBold'),
+    url('subset-Barlow-SemiBold.woff2') format('woff2'),
+    url('subset-Barlow-SemiBold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  font-family: 'Barlow Condensed';
+  src: local('Barlow Condensed SemiBold'), local('BarlowCondensed-SemiBold'),
+    url('subset-BarlowCondensed-SemiBold.woff2') format('woff2'),
+    url('subset-BarlowCondensed-SemiBold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'Barlow Condensed';
+  src: local('Barlow Condensed Regular'), local('BarlowCondensed-Regular'),
+    url('subset-BarlowCondensed-Regular.woff2') format('woff2'),
+    url('subset-BarlowCondensed-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 900;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Condensed Black'), local('HelveticaNeue-CondensedBlack'),
+    url('subset-HelveticaNeue-CondensedBlack.woff2') format('woff2'),
+    url('subset-HelveticaNeue-CondensedBlack.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 300;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Light'), local('HelveticaNeue-Light'),
+    url('subset-HelveticaNeue-Light.woff2') format('woff2'),
+    url('subset-HelveticaNeue-Light.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 100;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Thin'), local('HelveticaNeue-Thin'),
+    url('subset-HelveticaNeue-Thin.woff2') format('woff2'),
+    url('subset-HelveticaNeue-Thin.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 100;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Thin Italic'), local('HelveticaNeue-ThinItalic'),
+    url('subset-HelveticaNeue-ThinItalic.woff2') format('woff2'),
+    url('subset-HelveticaNeue-ThinItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 300;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Light Italic'), local('HelveticaNeue-LightItalic'),
+    url('subset-HelveticaNeue-LightItalic.woff2') format('woff2'),
+    url('subset-HelveticaNeue-LightItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 500;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Medium Italic'), local('HelveticaNeue-MediumItalic'),
+    url('subset-HelveticaNeue-MediumItalic.woff2') format('woff2'),
+    url('subset-HelveticaNeue-MediumItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: normal;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Italic'), local('HelveticaNeue-Italic'),
+    url('subset-HelveticaNeue-Italic.woff2') format('woff2'),
+    url('subset-HelveticaNeue-Italic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 100;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue UltraLight'), local('HelveticaNeue-UltraLight'),
+    url('subset-HelveticaNeue-UltraLight.woff2') format('woff2'),
+    url('subset-HelveticaNeue-UltraLight.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: bold;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Bold Italic'), local('HelveticaNeue-BoldItalic'),
+    url('subset-HelveticaNeue-BoldItalic.woff2') format('woff2'),
+    url('subset-HelveticaNeue-BoldItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Condensed Bold'), local('HelveticaNeue-CondensedBold'),
+    url('subset-HelveticaNeue-CondensedBold.woff2') format('woff2'),
+    url('subset-HelveticaNeue-CondensedBold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 100;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue UltraLight Italic'), local('HelveticaNeue-UltraLightItalic'),
+    url('subset-HelveticaNeue-UltraLightItalic.woff2') format('woff2'),
+    url('subset-HelveticaNeue-UltraLightItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue'), local('HelveticaNeue'),
+    url('subset-HelveticaNeue.woff2') format('woff2'),
+    url('subset-HelveticaNeue.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Medium'), local('HelveticaNeue-Medium'),
+    url('subset-HelveticaNeue-Medium.woff2') format('woff2'),
+    url('subset-HelveticaNeue-Medium.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Bold'), local('HelveticaNeue-Bold'),
+    url('subset-HelveticaNeue-Bold.woff2') format('woff2'),
+    url('subset-HelveticaNeue-Bold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Extrabold'), local('ProximaNova-Extrabld'),
+    url('subset-ProximaNova-Extrabld.woff2') format('woff2'),
+    url('subset-ProximaNova-Extrabld.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: bold;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Bold Italic'), local('ProximaNova-BoldIt'),
+    url('subset-ProximaNova-BoldIt.woff2') format('woff2'),
+    url('subset-ProximaNova-BoldIt.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Bold'), local('ProximaNova-Bold'),
+    url('subset-ProximaNova-Bold.woff2') format('woff2'),
+    url('subset-ProximaNova-Bold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: bold;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Extrabold Italic'), local('ProximaNova-ExtrabldIt'),
+    url('subset-ProximaNova-ExtrabldIt.woff2') format('woff2'),
+    url('subset-ProximaNova-ExtrabldIt.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Medium'), local('ProximaNova-Medium'),
+    url('subset-ProximaNova-Medium.woff2') format('woff2'),
+    url('subset-ProximaNova-Medium.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Regular'), local('ProximaNova-Regular'),
+    url('subset-ProximaNova-Regular.woff2') format('woff2'),
+    url('subset-ProximaNova-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 300;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Light'), local('ProximaNova-Light'),
+    url('subset-ProximaNova-Light.woff2') format('woff2'),
+    url('subset-ProximaNova-Light.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 300;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Light Italic'), local('ProximaNova-LightIt'),
+    url('subset-ProximaNova-LightIt.woff2') format('woff2'),
+    url('subset-ProximaNova-LightIt.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 500;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Medium Italic'), local('ProximaNova-MediumIt'),
+    url('subset-ProximaNova-MediumIt.woff2') format('woff2'),
+    url('subset-ProximaNova-MediumIt.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Semibold'), local('ProximaNova-Semibold'),
+    url('subset-ProximaNova-Semibold.woff2') format('woff2'),
+    url('subset-ProximaNova-Semibold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: normal;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Italic'), local('ProximaNova-RegularIt'),
+    url('subset-ProximaNova-RegularIt.woff2') format('woff2'),
+    url('subset-ProximaNova-RegularIt.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: 600;
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Semibold Italic'), local('ProximaNova-SemiboldIt'),
+    url('subset-ProximaNova-SemiboldIt.woff2') format('woff2'),
+    url('subset-ProximaNova-SemiboldIt.woff') format('woff');
+  font-display: swap;
+}

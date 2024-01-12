@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     overflow: auto;
     box-sizing: border-box;
+    color: ${({ theme }) => theme.colors.brand};
   }
 
   *,

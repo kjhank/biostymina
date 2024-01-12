@@ -1,18 +1,27 @@
 import 'styled-components';
+import {
+ type GetClamped, type GetMinMax, type Transition,
+} from './theme.types';
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+  export interface DefaultTheme extends DefaultTheme {
     colors: {
-      brand: string
-    }
+      accent: string;
+      brand: string;
+      brow: string;
+      highlight: string;
+    };
     fonts: {
-      heading: string
-      text: string
-    }
+      alt: string;
+      heading: string;
+      text: string;
+    };
+    getClamped: GetClamped;
+    getMax: GetMinMax;
+    getMin: GetMinMax;
     transitions: {
-      fast?: string
-      default: string
-      slow?: string
-    }
+      [key in Transition]: string
+    };
   }
 }
