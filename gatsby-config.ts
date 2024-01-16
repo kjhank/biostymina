@@ -3,6 +3,7 @@ import path from 'path';
 
 const config: GatsbyConfig = {
   plugins: [
+    'gatsby-plugin-image',
     'gatsby-plugin-tsconfig-paths',
     'gatsby-plugin-typescript',
     // {

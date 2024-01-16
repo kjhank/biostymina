@@ -15,8 +15,7 @@ export const hero: Hero = {
 
 export const product: Product = {
   brow: 'Biostymina®',
-  heading: `Naturalny lek
-  przeciw infekcjom`,
+  heading: 'Naturalny lek<br />przeciw infekcjom',
   link: {
     text: 'Dowiedz się więcej',
     url: '/biostymina',

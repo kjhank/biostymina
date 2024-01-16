@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 
 import sanitize from 'sanitize-html';
+import { Link } from 'gatsby';
 import {
-  AddressPart, BottomWrapper, Container, FinePrint, FooterNode, FootnotesPart,
-  Legal, LegalPart, Registration, Safety,
+  Address,
+  BottomWrapper, Container, Copyright, FinePrint, FooterNode, FootnotesPart,
+  LeftPart, Legal, LegalWrapper, Navigation, Registration, RightPart, Safety,
 } from './Footer.styled';
 import { useLayout } from '@/hooks';
-import { pathsWithFootnotes } from '../Layout.static';
+import { navLinks, pathsWithFootnotes } from '../Layout.static';
 import { Manufacturer } from '@/icons';
 
 const content = {
@@ -21,7 +23,7 @@ const content = {
   Informacja dot. przetwarzania danych osobowych
   Informacje dla akcjonariuszy`,
   copyright: 'Copyright © 2023 Phytopharm',
-  finePrint: '<b>Biostymina,</b> 1 ml, płyn doustny. <b>Substancja czynna i dawka:</b> W 1 ml płynu znajduje się 1 ml wyciągu płynnego ze świeżych liści aloesu drzewiastego (Aloe arborescens folii recentis extractum; DER 1:4). Rozpuszczalnik ekstrakcyjny: woda. Substancje pomocnicze: brak. <b>Postać farmaceutyczna:</b> Płyn doustny. <b>Wskazania do stosowania:</b> tradycyjnie do stosowania w infekcjach górnych dróg oddechowych o podłożu bakteryjnym i wirusowym. Pomocniczo w nawracających zakażenia górnych dróg oddechowych i innych, rozpoznanych przez lekarza stanach obniżonej odporności, po konsultacji z lekarzem. Produkt leczniczy jest wskazany do stosowania u dorosłych, młodzieży i dzieci w wieku powyżej 5 lat. <b>Podmiot odpowiedzialny:</b> Phytopharm Klęka S.A., Klęka 1, 63-040 Nowe Miasto nad Wartą, Polska. ',
+  finePrint: '<b>Biostymina,</b> 1 ml, płyn doustny. <b>Substancja czynna i dawka:</b> W 1 ml płynu znajduje się 1 ml wyciągu płynnego ze świeżych liści aloesu drzewiastego (<em>Aloe arborescens folii recentis extractum;</em> DER 1:4). Rozpuszczalnik ekstrakcyjny: woda. Substancje pomocnicze: brak. <b>Postać farmaceutyczna:</b> Płyn doustny. <b>Wskazania do stosowania:</b> tradycyjnie do stosowania w infekcjach górnych dróg oddechowych o podłożu bakteryjnym i wirusowym. Pomocniczo w nawracających zakażenia górnych dróg oddechowych i innych, rozpoznanych przez lekarza stanach obniżonej odporności, po konsultacji z lekarzem. Produkt leczniczy jest wskazany do stosowania u dorosłych, młodzieży i dzieci w wieku powyżej 5 lat. <b>Podmiot odpowiedzialny:</b> Phytopharm Klęka S.A., Klęka 1, 63-040 Nowe Miasto nad Wartą, Polska. ',
   legal: `INFORMACJE O NASZYCH PRODUKTACH
   ORAZ ZGŁASZANIE DZIAŁAŃ NIEPOŻĄDANYCH
 
@@ -44,7 +46,13 @@ const content = {
 };
 
 const sanitizeConfig: sanitize.IOptions = {
-  allowedTags: ['a', 'b'],
+  allowedTags: [
+'a',
+'b',
+'em',
+'i',
+'strong',
+],
 };
 
 export const Footer = () => {
@@ -64,17 +72,25 @@ export const Footer = () => {
           </FootnotesPart>
         )}
         <BottomWrapper>
-          <AddressPart
-            dangerouslySetInnerHTML={{ __html: sanitize(content.address, sanitizeConfig) }}
-          />
-          <LegalPart>
-            <Registration
-              dangerouslySetInnerHTML={{ __html: sanitize(content.registration, sanitizeConfig) }}
+          <LeftPart>
+            <Address
+              dangerouslySetInnerHTML={{ __html: sanitize(content.address, sanitizeConfig) }}
             />
-            <Legal
-              dangerouslySetInnerHTML={{ __html: sanitize(content.legal, sanitizeConfig) }}
-            />
-          </LegalPart>
+            <Copyright>{content.copyright}</Copyright>
+          </LeftPart>
+          <RightPart>
+            <LegalWrapper>
+              <Registration
+                dangerouslySetInnerHTML={{ __html: sanitize(content.registration, sanitizeConfig) }}
+              />
+              <Legal
+                dangerouslySetInnerHTML={{ __html: sanitize(content.legal, sanitizeConfig) }}
+              />
+            </LegalWrapper>
+            <Navigation>
+              {navLinks.map(link => <Link key={link.url} to={link.url}>{link.text}</Link>)}
+            </Navigation>
+          </RightPart>
         </BottomWrapper>
       </Container>
     </FooterNode>

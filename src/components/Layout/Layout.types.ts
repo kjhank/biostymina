@@ -18,3 +18,7 @@ export type LayoutContextProviderProps = {
   children: ReactNode;
   value: LayoutContextProps;
 }
+
+export type HeaderPropsStyled = {
+  $isFilled: boolean;
+};

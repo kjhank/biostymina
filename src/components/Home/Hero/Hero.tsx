@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import { ButtonLink, Container } from '@/components';
 import { type Hero as HeroProps } from '@/mocks/static.types';
 import { Heading, SubHeading } from './Hero.styled';
@@ -14,5 +15,10 @@ export const Hero = ({
       </h1>
       <ButtonLink to={link.url}>{link.text}</ButtonLink>
     </Container>
+    <StaticImage
+      alt="" className="hero-section-decoration"
+      loading="eager" placeholder="blurred"
+      src="../../../images/home/hero-decoration.png" width={1509}
+    />
   </Section>
 );

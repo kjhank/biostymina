@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { type HomeSectionStyledProps } from './Home.types';
 import { Container } from '../Container/Container';
 
@@ -8,18 +8,35 @@ export const Section = styled.section<HomeSectionStyledProps>`
   }
 
   &.hero-section {
-    margin-block-end: ${({ theme }) => theme.getMin(289)};
+    .hero-section-decoration {
+      position: absolute;
+      inset: -27% -3.5% auto auto;
+      z-index: -1;
+      inline-size: 78.6%;
+    }
 
     a {
-      margin-block-start: ${({ theme }) => theme.getMin(126)};
+      margin-block: ${({ theme }) => theme.getMin(126)} ${({ theme }) => theme.getMin(287)};
     }
   }
 
   &.product-section {
-    margin-block-end: ${({ theme }) => theme.getMin(131)};
+    margin-block: ${({ theme }) => theme.getMax(-47)} ${({ theme }) => theme.getMin(131)};
   }
 
   &.aloe-section {
+    isolation: isolate;
+
+    .container {
+      padding-block: ${({ theme }) => theme.getMin(123)} 0;
+
+      >.aloe-section-decoration {
+        position: absolute;
+        inset: 0 ${({ theme }) => theme.getMax(-180)} 0 ${({ theme }) => theme.getMin(135)};
+        z-index: -1;
+      };
+    }
+
     h2,
     p {
       margin-block: ${({ theme }) => theme.getMin(31)};
@@ -35,11 +52,12 @@ export const Section = styled.section<HomeSectionStyledProps>`
     }
 
     a {
-      margin-block-end: ${({ theme }) => theme.getMin(21)};
+      margin-block-end: ${({ theme }) => theme.getMin(219)};
     }
   }
 
   &.history-section {
+    isolation: isolate;
     margin-block: ${({ theme }) => `${theme.getMin(198.5)} ${theme.getMin(128)}`};
 
     h2 {
@@ -64,31 +82,33 @@ export const Text = styled.p`
   }
 `;
 
-const tightContainerStyle = css`
-  padding-inline: 32% 28%;
+export const ProductContainer = styled(Container)`
+  display: flex;
+
+  .product-section-decoration {
+    margin-inline: ${({ theme }) => theme.getMax(-140)} ${({ theme }) => theme.getMin(46)};
+  }
+`;
+
+export const ProductInner = styled.div`
+  display: flex;
+  align-items: flex-end;
+  width: ${({ theme }) => theme.getMin(888)};
+
+  h2 {
+    margin-block: ${({ theme }) => `${theme.getMin(31)} ${theme.getMin(71.5)}`};
+    white-space: nowrap;
+  }
 
   p {
+    margin-block-end: ${({ theme }) => theme.getMin(37)};
+    padding-inline-end: 26%;
     line-height: 1.875;
   }
 
-  a {
-    margin-block-start: ${({ theme }) => theme.getMin(30)};
-  }
-`;
-
-export const ProductContainer = styled(Container)`
-  ${tightContainerStyle};
-
-  p {
-    padding-inline-end: 25.2%;
-  }
-`;
-
-export const HistoryContainer = styled(Container)`
-  ${tightContainerStyle};
-
-  article {
-    margin-block: ${({ theme }) => `${theme.getMin(83.5)} ${theme.getMin(17.5)}`};
-    padding-inline-end: 25.2%;
+  .product-section-package {
+    position: relative;
+    inset: ${({ theme }) => theme.getMin(40)} auto auto ${({ theme }) => theme.getMax(-60)};
+    flex-shrink: 0;
   }
 `;
