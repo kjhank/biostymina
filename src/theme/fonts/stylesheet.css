@@ -327,3 +327,13 @@
     url('subset-ProximaNova-SemiboldIt.woff') format('woff');
   font-display: swap;
 }
+
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  font-family: 'DM Sans';
+  src: local('DM Sans Medium'), local('DMSans-Medium'),
+    url('subset-DMSans-Medium.woff2') format('woff2'),
+    url('subset-DMSans-Medium.woff') format('woff');
+  font-display: swap;
+}

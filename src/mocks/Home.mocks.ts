@@ -1,3 +1,4 @@
+import { articlesList } from './global.mocks';
 import {
   type Aloe, type Articles, type Hero,
   type History, type Product, type VideoAd,
@@ -52,7 +53,7 @@ export const history: History = {
 };
 
 export const articles: Articles = {
-  articles: [],
+  articles: articlesList,
   brow: 'Odporność',
   heading: 'Zainspiruj się naszymi artykułami',
   more: {

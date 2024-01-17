@@ -9,7 +9,7 @@ import { Section } from '../styled';
 export const Articles = ({
   articles, brow, heading, more,
 }: ArticlesProps) => (
-  <Section>
+  <Section className="articles-section">
     <Container>
       <Brow>{brow}</Brow>
       <ArticlesList

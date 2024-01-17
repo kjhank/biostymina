@@ -3,6 +3,8 @@ import { type HomeSectionStyledProps } from './Home.types';
 import { Container } from '../Container/Container';
 
 export const Section = styled.section<HomeSectionStyledProps>`
+  /* overflow-x: hidden; */
+
   h2 {
     text-align: ${({ $hasCenteredHeading }) => ($hasCenteredHeading ? 'center' : 'start')};
   }
@@ -30,7 +32,7 @@ export const Section = styled.section<HomeSectionStyledProps>`
     .container {
       padding-block: ${({ theme }) => theme.getMin(123)} 0;
 
-      >.aloe-section-decoration {
+      > .aloe-section-decoration {
         position: absolute;
         inset: 0 ${({ theme }) => theme.getMax(-180)} 0 ${({ theme }) => theme.getMin(135)};
         z-index: -1;
@@ -63,6 +65,30 @@ export const Section = styled.section<HomeSectionStyledProps>`
     h2 {
       white-space: nowrap;
     }
+  }
+
+  &.articles-section {
+    > .container {
+      display: flex;
+      flex-direction: column;
+      padding-inline: 6%;
+
+      > p, h2 {
+        padding-inline-start: 1.85%;
+      }
+
+      h2 {
+        margin-block: ${({ theme }) => `${theme.getMin(38)} ${theme.getMin(50)}`};
+      }
+
+      > ul + a {
+        margin: ${({ theme }) => theme.getMin(66)} auto 0;
+      }
+    }
+  }
+
+  &.video-section {
+    margin-block:${({ theme }) => `${theme.getMin(95)} ${theme.getMin(135)}`};
   }
 `;
 

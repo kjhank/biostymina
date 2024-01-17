@@ -1,10 +1,9 @@
 import {
  type ArticlesList, type NavLink, type Video,
 } from '@/types/global.types';
-import { type ACFImage } from '@/types';
 
 export type Hero = {
-  background: ACFImage;
+  background: string;
   heading: string;
   link: NavLink;
   subheading: string;
@@ -12,16 +11,16 @@ export type Hero = {
 
 export type Product = {
   brow: string;
-  decoration: ACFImage;
+  decoration: string;
   heading: string;
-  image: ACFImage;
+  image: string;
   link: NavLink;
   text: string;
 };
 
 export type Aloe = {
   brow: string;
-  decoration: ACFImage;
+  decoration: string;
   heading: string;
   link: NavLink;
   text: string;

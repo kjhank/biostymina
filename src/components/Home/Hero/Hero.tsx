@@ -17,8 +17,10 @@ export const Hero = ({
     </Container>
     <StaticImage
       alt="" className="hero-section-decoration"
+      imgStyle={{ objectFit: 'contain' }}
       loading="eager" placeholder="blurred"
-      src="../../../images/home/hero-decoration.png" width={1509}
+      src="../../../images/home/hero-decoration.png"
+      width={1509}
     />
   </Section>
 );

@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { type ACFFile, type ACFImage } from './wordpress.types';
+import { type ACFFile } from './wordpress.types';
 
 export type NavLink = {
   text: ReactNode;
@@ -7,7 +7,7 @@ export type NavLink = {
 };
 
 export type ArticleThumb = {
-  thumbnail: ACFImage;
+  thumbnail: string;
   timestamp: string;
   title: string;
   url: string;
@@ -21,6 +21,6 @@ export type ArticlesList = {
 
 export type Video = {
   mp4?: ACFFile;
-  poster: ACFImage;
+  poster: string;
   webm: ACFFile;
 };

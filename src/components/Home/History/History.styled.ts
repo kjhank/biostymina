@@ -46,10 +46,11 @@ export const HistoryInner = styled.div`
 
   article {
     margin-block: ${({ theme }) => `${theme.getMin(83.5)} ${theme.getMin(17.5)}`};
+    padding-inline-end: 1em;
 
-  p {
-    line-height: 1.875;
-  }
+    p {
+      line-height: 1.875;
+    }
   }
 
   a {
