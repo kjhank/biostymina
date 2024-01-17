@@ -6,6 +6,9 @@
     [
       "babel-preset-gatsby",
       {
+        "options": {
+          "reactRuntime": "automatic"
+        },
         "targets": {
           "browsers": [">0.25%", "not dead"]
         }

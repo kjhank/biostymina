@@ -3,7 +3,7 @@
     "baseUrl": "./",
     "module": "esnext",
     "target": "esnext",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": [
       "dom",
       "esnext"
@@ -20,7 +20,8 @@
         "src/*"
       ],
       "react": ["node_modules/@types/react"]
-    }
+    },
+    "typeRoots": ["./src/custom.d.ts"]
   },
   "exclude": [
     "node_modules",

@@ -1,31 +1,24 @@
+import { type GatsbyConfig } from 'gatsby';
 import path from 'path';
 
-// const gatsbyRequiredRules = path.join(
-//   process.cwd(),
-//   'node_modules',
-//   'gatsby',
-//   'dist',
-//   'utils',
-//   'eslint-rules'
-// );
-
-export default {
+const config: GatsbyConfig = {
   plugins: [
+    'gatsby-plugin-image',
     'gatsby-plugin-tsconfig-paths',
     'gatsby-plugin-typescript',
-    {
-      exclude: [
-        'node_modules',
-        '.cache',
-        'public',
-      ],
-      options: {
-        extensions: ['ts', 'tsx'],
-        // rulePaths: [gatsbyRequiredRules],
-        stages: ['develop'],
-      },
-      resolve: 'gatsby-plugin-eslint',
-    },
+    // {
+    //   options: {
+    //     exclude: [
+    //       'node_modules',
+    //       '.cache',
+    //       'public',
+    //     ],
+    //     extensions: ['ts', 'tsx'],
+    //     // rulePaths: [gatsbyRequiredRules],
+    //     stages: ['develop'],
+    //   },
+    //   resolve: 'gatsby-plugin-eslint',
+    // },
     {
       options: {
         name: 'images',
@@ -48,6 +41,7 @@ export default {
       resolve: 'gatsby-plugin-manifest',
     },
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-svg',
   ],
   siteMetadata: {
     author: '@kjhank',
@@ -57,3 +51,5 @@ export default {
 };
 
 export { };
+
+export default config;

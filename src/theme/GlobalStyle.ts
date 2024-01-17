@@ -3,7 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   html {
     overflow: auto;
+    overflow-x: hidden;
     box-sizing: border-box;
+    color: ${({ theme }) => theme.colors.brand};
   }
 
   *,

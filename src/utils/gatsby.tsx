@@ -1,4 +1,3 @@
-import React from 'react';
 import { Layout } from '@/components';
 import { type WrapPageElement, type WrapPageProps } from './utils.types';
 
