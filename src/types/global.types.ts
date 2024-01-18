@@ -24,3 +24,16 @@ export type Video = {
   poster: string;
   webm: ACFFile;
 };
+
+export type PageHeader = {
+  background: string;
+  heading: string;
+} & (
+    {
+      hasLink: true;
+      link: NavLink;
+    } | {
+      hasLink?: false | never;
+      link?: never;
+    }
+  );

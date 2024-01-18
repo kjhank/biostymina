@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 
-import { Container } from '@/components/Container/Container';
+import { ArticlesList, Container } from '@/components';
 import { Brow } from '@/components/styled';
-import { ArticlesList } from '@/components';
-import { type Articles as ArticlesProps } from '@/mocks/static.types';
+import { type ArticlesSection as ArticlesProps } from '@/types/content/home.types';
 import { Section } from '../styled';
 
 export const Articles = ({

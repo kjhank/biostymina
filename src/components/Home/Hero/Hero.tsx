@@ -1,6 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import { ButtonLink, Container } from '@/components';
-import { type Hero as HeroProps } from '@/mocks/static.types';
+import { type Hero as HeroProps } from '@/types/content/home.types';
 import { Heading, SubHeading } from './Hero.styled';
 import { Section } from '../styled';
 

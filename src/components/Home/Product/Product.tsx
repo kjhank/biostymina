@@ -1,7 +1,7 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import sanitize from 'sanitize-html';
 import { Brow, SectionHeading } from '@/components/styled';
-import { type Product as ProductProps } from '@/mocks/static.types';
+import { type Product as ProductProps } from '@/types/content/home.types';
 import {
   ProductContainer, ProductInner, Section, Text,
 } from '../styled';

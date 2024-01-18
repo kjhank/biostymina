@@ -2,11 +2,10 @@
 
 import sanitize from 'sanitize-html';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Container } from '@/components/Container/Container';
+import { ButtonLink, Container } from '@/components';
 import { Brow, SectionHeading } from '@/components/styled';
-import { type Aloe as AloeProps } from '@/mocks/static.types';
+import { type Aloe as AloeProps } from '@/types/content/home.types';
 import { Section, Text } from '../styled';
-import { ButtonLink } from '@/components';
 import { sanitizeConfig } from '@/utils';
 
 export const Aloe = ({

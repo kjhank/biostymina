@@ -33,7 +33,7 @@ export type History = {
   text: string;
 };
 
-export type Articles = {
+export type ArticlesSection = {
   brow: string;
 } & ArticlesList
 

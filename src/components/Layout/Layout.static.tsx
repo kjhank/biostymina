@@ -6,8 +6,7 @@ export const htmlAttributes = { lang: 'pl' };
 export const navLinks: Array<NavLink> = [
   {
     text: <>
-      Biostymina
-      <sup>®</sup>
+      Biostymina®
     </>,
     url: '/biostymina',
   },

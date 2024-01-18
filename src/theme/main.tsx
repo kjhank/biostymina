@@ -8,10 +8,11 @@ import {
 const theme: DefaultTheme = {
   colors: {
     // color declarations go here
-    accent: '#B30018',
-    brand: '#285C3F',
-    brow: '#C4D76E',
-    highlight: '#89B05F',
+    accent: '#b30018',
+    brand: '#285c3f',
+    brow: '#c4d76e',
+    highlight: '#89b05f',
+    neutral: '#f6f6f6',
   },
   fonts: {
     alt: '\'Barlow Condensed\', serif',

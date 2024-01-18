@@ -1,8 +1,8 @@
 import { articlesList } from './global.mocks';
 import {
-  type Aloe, type Articles, type Hero,
+  type Aloe, type ArticlesSection, type Hero,
   type History, type Product, type VideoAd,
-} from './static.types';
+} from '../types/content/home.types';
 
 export const hero: Hero = {
   heading: `Niezbędne
@@ -52,7 +52,7 @@ export const history: History = {
   w 2007 roku zyskał status leku bez recepty.</strong></p>`,
 };
 
-export const articles: Articles = {
+export const articles: ArticlesSection = {
   articles: articlesList,
   brow: 'Odporność',
   heading: 'Zainspiruj się naszymi artykułami',

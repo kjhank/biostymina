@@ -11,6 +11,7 @@ declare module 'styled-components' {
       brand: string;
       brow: string;
       highlight: string;
+      neutral: string;
     };
     fonts: {
       alt: string;

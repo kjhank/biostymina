@@ -3,7 +3,7 @@
 import sanitize from 'sanitize-html';
 import { StaticImage } from 'gatsby-plugin-image';
 import { SectionHeading } from '@/components/styled';
-import { type History as HistoryProps } from '@/mocks/static.types';
+import { type History as HistoryProps } from '@/types/content/home.types';
 import { Section, Text } from '../styled';
 import { ButtonLink } from '@/components';
 import { sanitizeConfig } from '@/utils';

@@ -23,6 +23,7 @@ export const PlayButton = styled.button<PlayButtonStyledProps>`
 
 export const Player = styled.video.attrs({ controls: true })`
   width: 100%;
+  border-radius: 61px;
   cursor: pointer;
 
   :hover {

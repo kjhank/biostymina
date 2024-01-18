@@ -1,11 +1,11 @@
 import { Container } from '@/components';
 
 import {
-  StyledLink, Text, Wrapper,
+  StyledLink, Text,
 } from '@/components/styled';
 
 export const NotFoundContainer = () => (
-  <Wrapper>
+  <main>
     <Container>
       <h1>Hello there</h1>
       <Text>
@@ -16,5 +16,5 @@ export const NotFoundContainer = () => (
         to go home.
       </Text>
     </Container>
-  </Wrapper>
+  </main>
 );

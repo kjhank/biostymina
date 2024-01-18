@@ -1,6 +1,6 @@
 import { Container } from '@/components';
 import { SectionHeading } from '@/components/styled';
-import { type VideoAd as VideoProps } from '@/mocks/static.types';
+import { type VideoAd as VideoProps } from '@/types/content/home.types';
 import { Section } from '../styled';
 
 export const Video = ({
