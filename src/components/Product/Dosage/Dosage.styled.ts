@@ -16,7 +16,15 @@ export const DosageSection = styled.section`
 `;
 
 export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+
+  .dosage-decoration {
+    width: ${({ theme }) => theme.getMin(995)};
+    margin-inline-start: ${({ theme }) => theme.getMax(-290)};
+  }
 `;
 
 export const List = styled.ul`
@@ -28,15 +36,19 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.getMin(80)};
   border-radius: 1000px;
   padding: 11.87%;
   background-color: ${({ theme }) => theme.colors.neutral};
   font-family: ${({ theme }) => theme.fonts.heading};
   text-align: center;
+`;
+
+export const ItemInner = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.getMin(70)};
+  border-radius: inherit;
   isolation: isolate;
 
   &::before,
@@ -44,20 +56,19 @@ export const Item = styled.li`
     content: '';
     position: absolute;
     display: block;
-    width: 79.13%;
+    width: 100%;
     border-radius: inherit;
     aspect-ratio: 1;
-    translate: -50% 0;
   }
 
   &::before {
-    inset: 7% auto auto 50%;
+    inset: 0 0 auto;
     z-index: -2;
     background-image: linear-gradient(to bottom, #336542, #dbe93b);
   }
 
   &::after {
-    inset: 23% auto auto 50%;
+    inset: 18% 0 auto;
     z-index: -1;
     backdrop-filter: blur(25px);
   }

@@ -1,7 +1,7 @@
 import sanitize from 'sanitize-html';
 import { type Dose as DoseProps } from '@/types';
 import {
-  Heading, Item, Text,
+  Heading, Item, ItemInner, Text,
 } from './Dosage.styled';
 
 export const SingleDose = ({ heading, text }: DoseProps) => {
@@ -9,8 +9,10 @@ export const SingleDose = ({ heading, text }: DoseProps) => {
 
   return (
     <Item>
-      <Heading>{heading}</Heading>
-      <Text dangerouslySetInnerHTML={{ __html: sanitizedText }} />
+      <ItemInner>
+        <Heading>{heading}</Heading>
+        <Text dangerouslySetInnerHTML={{ __html: sanitizedText }} />
+      </ItemInner>
     </Item>
   );
 };

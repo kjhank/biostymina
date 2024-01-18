@@ -14,7 +14,7 @@ export type ArticleThumb = {
 };
 
 export type ArticlesList = {
-  heading: ReactNode;
+  heading: string;
   articles: Array<ArticleThumb>;
   more: NavLink;
 };

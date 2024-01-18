@@ -24,4 +24,4 @@ export const navLinks: Array<NavLink> = [
   },
 ];
 
-export const pathsWithFootnotes = ['/', '/biostymina'];
+export const pathsWithFootnotes = ['/', '/biostymina/'];

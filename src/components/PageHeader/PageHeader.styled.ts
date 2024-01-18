@@ -5,8 +5,8 @@ import productBubble1 from '@/images/product/bubble-1.png';
 export const Bubble = styled.div<BubblePropsStyled>`
   display: flex;
   align-items: center;
-  min-width: 300px;
   height: ${({ theme }) => theme.getMin(187)};
+  border: 1px solid ${({ theme }) => theme.colors.neutral};
   border-radius: 9999px;
   background-color: ${({ $isBlended, theme }) => ($isBlended ? '#000' : theme.colors.neutral)};
 
@@ -41,8 +41,8 @@ export const HeaderNode = styled.header`
   &.product-header {
     ${BubblesWrapper}.bubbles-wrapper-1 {
       ${Bubble}:first-child {
-        width: 100vw;
-        margin-inline-start: calc(-100vw + ${({ theme }) => theme.getMin(141)});
+        width: ${({ theme }) => theme.getMin(415)};
+        margin-inline-start: ${({ theme }) => theme.getMax(-275)};
       }
       ${Bubble}:nth-child(2) {
         width: ${({ theme }) => theme.getMin(743.8)};
@@ -57,8 +57,8 @@ export const HeaderNode = styled.header`
       }
 
       ${Bubble}:last-child {
-        width: 100vw;
-        margin-inline-end: calc(-100vw + ${({ theme }) => theme.getMin(212)});
+        width: ${({ theme }) => theme.getMin(512)};
+        margin-inline-end: ${({ theme }) => theme.getMax(-372)};
 
         &.bubble-product-header {
           background-color: transparent;
@@ -68,8 +68,8 @@ export const HeaderNode = styled.header`
 
     ${BubblesWrapper}.bubbles-wrapper-2 {
       ${Bubble}:first-child {
-        width: 100vw;
-        margin-inline-start: calc(-100vw + ${({ theme }) => theme.getMin(665)});
+        width: ${({ theme }) => theme.getMin(937)};
+        margin-inline-start: ${({ theme }) => theme.getMax(-271)};
       }
 
       ${Bubble}:nth-child(2) {
@@ -81,8 +81,8 @@ export const HeaderNode = styled.header`
       }
 
       ${Bubble}:last-child {
-        width: 100vw;
-        margin-inline-end: calc(-100vw + ${({ theme }) => theme.getMin(441.42)});
+        width: ${({ theme }) => theme.getMin(719)};
+        margin-inline-end: ${({ theme }) => theme.getMax(-441)};
 
         &.bubble-product-header {
           background-color: transparent;

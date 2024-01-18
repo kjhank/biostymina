@@ -337,3 +337,34 @@
     url('subset-DMSans-Medium.woff') format('woff');
   font-display: swap;
 }
+
+@font-face {
+  font-style: italic;
+  font-weight: 500;
+  font-family: 'Barlow';
+  src: local('Barlow Medium Italic'), local('Barlow-MediumItalic'),
+      url('subset-Barlow-MediumItalic.woff2') format('woff2'),
+      url('subset-Barlow-MediumItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: italic;
+  font-weight: normal;
+  font-family: 'Barlow';
+  src: local('Barlow Italic'), local('Barlow-Italic'),
+      url('subset-Barlow-Italic.woff2') format('woff2'),
+      url('subset-Barlow-Italic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'Barlow';
+  src: local('Barlow Regular'), local('Barlow-Regular'),
+      url('subset-Barlow-Regular.woff2') format('woff2'),
+      url('subset-Barlow-Regular.woff') format('woff');
+  font-display: swap;
+}
+
