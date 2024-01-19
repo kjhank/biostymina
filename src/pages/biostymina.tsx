@@ -21,4 +21,3 @@ const ProductPage = () => (
 );
 
 export default ProductPage;
-// 441.41999999999996

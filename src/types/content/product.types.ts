@@ -1,4 +1,4 @@
-import { type ArticlesList, type Video } from '../global.types';
+import { type ArticlesList } from '../global.types';
 
 export type IntroItem = {
   image: string;
@@ -37,12 +37,19 @@ export type Dosage = {
   image: string;
 };
 
+export type InstructionStep = {
+  hasSeparator?: boolean;
+  heading?: string;
+  image: string;
+  text: string;
+};
+
 export type Instructions = {
+  instructions: Array<InstructionStep>;
   title: {
     description: string;
     heading: string;
   };
-  video: Video;
 }
 
 export type Warnings = {

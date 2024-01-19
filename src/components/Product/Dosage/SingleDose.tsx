@@ -1,4 +1,5 @@
 import sanitize from 'sanitize-html';
+import { StaticImage } from 'gatsby-plugin-image';
 import { type Dose as DoseProps } from '@/types';
 import {
   Heading, Item, ItemInner, Text,
@@ -13,6 +14,11 @@ export const SingleDose = ({ heading, text }: DoseProps) => {
         <Heading>{heading}</Heading>
         <Text dangerouslySetInnerHTML={{ __html: sanitizedText }} />
       </ItemInner>
+      <StaticImage
+        alt="ampułka z cieczą" className="dosage-ampoule"
+        placeholder="blurred"
+        src="../../../images/product/ampoule-1-hq.png" width={239}
+      />
     </Item>
   );
 };

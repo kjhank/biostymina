@@ -99,11 +99,22 @@ export const dosage: Dosage = {
 };
 
 export const instructions: Instructions = {
+  instructions: [
+    {
+      hasSeparator: true,
+      heading: 'Znajdź kropkę!',
+      image: '',
+      text: 'Szkło pod kropką jest specjalnie ukształtowane, by ułatwić przełamanie, dzięki temu pilniczek nie jest potrzebny',
+    },
+    {
+      image: '',
+      text: 'Przykryj kciukiem kropkę i przełam ampułkę zdecydowanym ruchem.',
+    },
+  ],
   title: {
     description: 'Zobacz jakie to proste!',
     heading: 'Jak bezpiecznie otworzyć ampułkę?',
   },
-  video: {},
 };
 
 export const warnings: Warnings = {

@@ -36,11 +36,20 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
+  position: relative;
   border-radius: 1000px;
   padding: 11.87%;
   background-color: ${({ theme }) => theme.colors.neutral};
   font-family: ${({ theme }) => theme.fonts.heading};
   text-align: center;
+
+  .dosage-ampoule {
+    position: absolute;
+    inset: auto 100% ${({ theme }) => theme.getMax(-40)} auto;
+    width: ${({ theme }) => theme.getMin(115)};
+    mix-blend-mode: multiply;
+    translate: 60% 0;
+  }
 `;
 
 export const ItemInner = styled.div`
