@@ -5,7 +5,7 @@ export type WrapPageElement =
   | GatsbyBrowser['wrapPageElement']
   | GatsbySSR['wrapPageElement'];
 
-export interface WrapPageProps {
-  element: React.ReactNode
-  props: Record<string, unknown>
+export type WrapPageProps = {
+  element: React.ReactNode;
+  props: Record<string, unknown>;
 }

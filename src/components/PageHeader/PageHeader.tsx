@@ -7,7 +7,7 @@ import { type PageHeaderProps } from './PageHeader.types';
 import { Container } from '../Container/Container';
 
 export const PageHeader = ({
-  background, className, heading, gridLayout, hasLink, link,
+   className, heading, hasLink, link,
 }: PageHeaderProps) => (
   <HeaderNode className={className}>
     <BlendWrapper $isWhite>
@@ -32,7 +32,7 @@ export const PageHeader = ({
         <BubblesWrapper className="bubbles-wrapper-1">
           <Bubble className={`bubble-${className}`} />
           <Bubble className={`bubble-${className}`}><Title>{heading}</Title></Bubble>
-          <Bubble className={`bubble-${className}`} />
+          <Bubble className={`bubble-${className}`}><Title>{heading}</Title></Bubble>
           <Bubble className={`bubble-${className}`} />
         </BubblesWrapper>
       </Container>

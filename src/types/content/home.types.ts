@@ -28,7 +28,9 @@ export type Aloe = {
 
 export type History = {
   brow: string;
+  decoration: string;
   heading: string;
+  image: string;
   link: NavLink;
   text: string;
 };

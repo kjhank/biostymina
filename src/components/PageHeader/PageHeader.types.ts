@@ -1,6 +1,5 @@
+import { type ComponentPropsWithoutRef } from 'react';
 import { type PageHeader } from '@/types';
-
-type GridLayout = 'start' | 'end';
 
 export type BlendWrapperPropsStyled = {
   $isWhite?: boolean;
@@ -11,7 +10,4 @@ export type BubblePropsStyled = {
   $isBlank?: boolean;
 };
 
-export type PageHeaderProps = PageHeader & {
-  className?: string;
-  gridLayout: GridLayout;
-}
+export type PageHeaderProps = PageHeader & ComponentPropsWithoutRef<'header'>

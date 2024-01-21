@@ -58,7 +58,6 @@ const sanitizeConfig: sanitize.IOptions = {
 export const Footer = () => {
   const { location } = useLayout();
 
-  console.log(location);
   const shouldShowFootnotes = pathsWithFootnotes.includes(location?.pathname ?? '');
 
   return (

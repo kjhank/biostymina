@@ -7,10 +7,10 @@ import {
 
 const theme: DefaultTheme = {
   colors: {
-    // color declarations go here
     accent: '#b30018',
     brand: '#285c3f',
     brow: '#c4d76e',
+    emphasis: '#f65c04',
     highlight: '#89b05f',
     neutral: '#f6f6f6',
   },
@@ -18,7 +18,6 @@ const theme: DefaultTheme = {
     alt: '\'Barlow Condensed\', serif',
     heading: '\'Barlow\', serif',
     text: '\'Poppins\', sans-serif',
-    // font declarations go here
   },
   getClamped,
   getMax,

@@ -20,9 +20,11 @@ export type ArticlesList = {
 };
 
 export type Video = {
-  mp4?: ACFFile;
   poster: string;
-  webm: ACFFile;
+  sources: {
+    mp4?: Partial<ACFFile>;
+    webm: Partial<ACFFile>;
+  };
 };
 
 export type PageHeader = {

@@ -368,3 +368,13 @@
   font-display: swap;
 }
 
+@font-face {
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Barlow';
+  src: local('Barlow Bold'), local('Barlow-Bold'),
+      url('subset-Barlow-Bold.woff2') format('woff2'),
+      url('subset-Barlow-Bold.woff') format('woff');
+  font-display: swap;
+}
+

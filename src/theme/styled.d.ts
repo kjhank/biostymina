@@ -10,6 +10,7 @@ declare module 'styled-components' {
       accent: string;
       brand: string;
       brow: string;
+      emphasis: string;
       highlight: string;
       neutral: string;
     };

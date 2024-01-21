@@ -1,5 +1,3 @@
-import { type ArticlesList } from '../global.types';
-
 export type IntroItem = {
   image: string;
   text: string;
@@ -55,5 +53,3 @@ export type Instructions = {
 export type Warnings = {
   list: Array<string>;
 }
-
-export type Articles = ArticlesList;

@@ -1,6 +1,6 @@
 import {
   Aloe, Articles, Hero, History, Product, Video,
-} from '@/components/Home';
+} from '@/components/pages/Home';
 import * as mocks from '@/mocks/Home.mocks';
 
 const IndexPage = () => (

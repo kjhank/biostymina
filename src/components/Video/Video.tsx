@@ -1,11 +1,13 @@
-import React, {
+import {
   type SyntheticEvent,
   useRef, useState,
 } from 'react';
 
 import { PlaySymbol } from '@/icons';
-import { PlayButton, Player } from './Video.styled';
-import { type VideoFormat, type VideoProps } from './Video.types';
+import {
+  PlayButton, Player, Wrapper,
+} from './Video.styled';
+import { type VideoProps } from './Video.types';
 
 export const Video = ({
   poster, sources,
@@ -30,8 +32,15 @@ export const Video = ({
     setPlayButtonVisible(type === 'pause');
   };
 
+  const sourceNodes = Object.entries(sources).map(([format, source]) => (
+    <source
+      key={format} src={source.url}
+      type={source.subtype}
+    />
+  ));
+
   return (
-    <>
+    <Wrapper>
       <Player
         onPause={handlePlaying}
         onPlaying={handlePlaying}
@@ -39,13 +48,7 @@ export const Video = ({
         preload="metadata"
         ref={playerRef}
       >
-        {Object.keys(sources).map(source => (
-          <source
-            key={sources[source as VideoFormat].filename}
-            src={sources[source as VideoFormat].url}
-            type={`${sources[source as VideoFormat].type}/${sources[source as VideoFormat].subtype}`}
-          />
-        ))}
+        {sourceNodes}
         Your browser does not support HTML5 video.
       </Player>
       <PlayButton
@@ -55,6 +58,6 @@ export const Video = ({
       >
         <PlaySymbol />
       </PlayButton>
-    </>
+    </Wrapper>
   );
 };

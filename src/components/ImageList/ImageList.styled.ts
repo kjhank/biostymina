@@ -6,19 +6,24 @@ import check from '../../images/components/check.png';
 export const Wrapper = styled.div`
   display: grid;
   grid-template-areas: 'list';
+  background-color: #f5fbf7;
   background-image: url(${listBackground});
   background-position: 73% 41%;
   background-size: 80vw;
+  font-weight: 700;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  isolation: isolate;
 `;
 
 export const List = styled.ul<ImageListPropsStyled>`
   display: grid;
   grid-template-columns: 1fr;
-  gap: ${({ theme }) => theme.getMin(12)};
   grid-area: list;
   background-color: ${({ $isWhite }) => $isWhite && '#fff'};
   mix-blend-mode: ${({ $isWhite }) => $isWhite && 'lighten'};
+  user-select: ${({ $isWhite }) => $isWhite && 'none'};
   isolation: isolate;
+  gap: ${({ theme }) => theme.getMin(12)};
 
   > li {
     display: flex;
@@ -37,8 +42,6 @@ export const Content = styled.p`
   border-radius: 1000px;
   padding-inline-start: ${({ theme }) => theme.getMin(57)};
   backdrop-filter: blur(25px);
-  font-weight: 700;
-  font-family: ${({ theme }) => theme.fonts.heading};
   line-height: 1.18;
   white-space: pre-line;
 
