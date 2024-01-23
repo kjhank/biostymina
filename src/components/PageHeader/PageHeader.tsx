@@ -7,7 +7,7 @@ import { type PageHeaderProps } from './PageHeader.types';
 import { Container } from '../Container/Container';
 
 export const PageHeader = ({
-   className, heading, hasLink, link,
+   className, heading, hasLink, fileLink,
 }: PageHeaderProps) => (
   <HeaderNode className={className}>
     <BlendWrapper $isWhite>
@@ -39,7 +39,7 @@ export const PageHeader = ({
       <Container>
         <BubblesWrapper className="bubbles-wrapper-2">
           <Bubble className={`bubble-${className}`}>
-            {hasLink && <ButtonLink href={link.url}>{link.text}</ButtonLink>}
+            {hasLink && <ButtonLink href={fileLink.url}>{fileLink.text}</ButtonLink>}
           </Bubble>
           <Bubble className={`bubble-${className}`} />
           <Bubble className={`bubble-${className}`} />

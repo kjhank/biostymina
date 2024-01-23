@@ -24,7 +24,7 @@ export const product: Product = {
     text: 'Dowiedz się więcej',
     url: '/biostymina',
   },
-  text: 'Odkryj moc czystego wyciągu ze świeżych liści aloesu drzewiastego w produkcie Biostymina<sup>®</sup> - leku, który wzmacnia odporność i pomaga zwalczać infekcje. Bez dodatków konserwantów, cukru, alkoholu, glutenu, laktozy oraz substancji pomocniczych. Idealny w walce z infekcjami górnych dróg oddechowych i obniżoną odpornością.',
+  text: 'Odkryj moc czystego wyciągu ze świeżych liści aloesu drzewiastego w produkcie Biostymina® - leku, który wzmacnia odporność i pomaga zwalczać infekcje. Bez dodatków konserwantów, cukru, alkoholu, glutenu, laktozy oraz substancji pomocniczych. Idealny w walce z infekcjami górnych dróg oddechowych i obniżoną odpornością.',
 };
 
 export const aloe: Aloe = {

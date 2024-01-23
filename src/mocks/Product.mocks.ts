@@ -7,12 +7,12 @@ import { articlesList } from './global.mocks';
 
 export const header: PageHeader = {
   background: '',
-  hasLink: true,
-  heading: 'Biostymina®',
-  link: {
+  fileLink: {
     text: 'Zobacz ulotkę',
     url: '#',
   },
+  hasLink: true,
+  heading: 'Biostymina®',
 };
 
 export const intro: Intro = {

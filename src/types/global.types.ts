@@ -33,9 +33,9 @@ export type PageHeader = {
 } & (
     {
       hasLink: true;
-      link: NavLink;
+      fileLink: NavLink;
     } | {
       hasLink?: false | never;
-      link?: never;
+      fileLink?: never;
     }
   );
