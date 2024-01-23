@@ -17,7 +17,7 @@ export const Product = ({
       <ProductContainer>
         <WPImage
           alt="aloes i ampułki z płynem" className="product-section-decoration"
-          imageData={{ url: decoration }}
+          imageData={decoration}
           loading="eager"
         />
         <ProductInner>
@@ -25,11 +25,11 @@ export const Product = ({
             <Brow>{brow}</Brow>
             <SectionHeading dangerouslySetInnerHTML={{ __html: sanitizedHeading }} />
             <Text dangerouslySetInnerHTML={{ __html: sanitizedText }} />
-            <ButtonLink to={link.url}>{link.text}</ButtonLink>
+            <ButtonLink to={link.url}>{link.title}</ButtonLink>
           </div>
           <WPImage
             alt="opakowanie Biostymina" className="product-section-package"
-            imageData={{ url: image }} loading="eager"
+            imageData={image} loading="eager"
           />
         </ProductInner>
       </ProductContainer>

@@ -1,17 +1,21 @@
 import { type PageProps } from 'gatsby';
 import { type ReactNode } from 'react';
+import { type PageContext, type WhereToBuyModal } from '@/types/pages.types';
 
 export type LayoutProps = {
   children: ReactNode;
   location?: PageProps['location'];
-}
+  pageContext: PageContext;
+};
 
 export type NavLinkStyledProps = {
   $hasHighlight: boolean;
 };
 
 export type LayoutContextProps = {
+  isModalOpen?: boolean;
   location?: PageProps['location'];
+  toggleModal: () => void;
 };
 
 export type LayoutContextProviderProps = {
@@ -22,3 +26,5 @@ export type LayoutContextProviderProps = {
 export type HeaderPropsStyled = {
   $isFilled: boolean;
 };
+
+export type ModalProps = WhereToBuyModal;

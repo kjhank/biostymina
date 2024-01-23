@@ -6,7 +6,7 @@ import { type CultivationListProps } from './Cultivation.types';
 export const CultivationList = ({ items }: CultivationListProps) => (
   <Container>
     <List>
-      {items.map(item => {
+      {items.map(({ item }) => {
         const cleanItem = sanitize(item, { allowedTags: ['sup'] });
 
         return (

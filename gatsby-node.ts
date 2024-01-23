@@ -1,13 +1,118 @@
 import { type GatsbyNode } from 'gatsby';
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+import * as dotenv from 'dotenv';
+import fetch from 'node-fetch';
+import path from 'path';
+import { endpoints } from './src/constants/endpoints';
+import {
+  type Page, type RequestParams, type Templates,
+} from './src/types';
+import { paths } from './src/constants/paths';
 
-// You can delete this file if you're not using it
+type FetchData = (
+  entity: string,
+  id?: number,
+  params?: Record<string, string>,
+  isInfinite?: boolean
+) => any;
 
-// export {};
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+
+const templates: Templates = {
+  'aloes-drzewiasty': path.resolve('./src/templates/aloe.tsx'),
+  biostymina: path.resolve('./src/templates/product.tsx'),
+  'historia-marki': path.resolve('./src/templates/history.tsx'),
+  odpornosc: path.resolve('./src/templates/articles.tsx'),
+  'strona-glowna': path.resolve('./src/templates/home.tsx'),
+};
+
+const getRequestUrl = (endpoint: string, params?: RequestParams) => {
+  const { GATSBY_BACKEND_URL: apiUrl } = process.env;
+  const baseUrl = `${apiUrl}${endpoint}`;
+
+  if (params && Object.keys(params).length > 0) {
+    const urlParamas = new URLSearchParams(params);
+
+    return `${baseUrl}?acf_format=standard${urlParamas.toString()}`;
+  }
+
+  return `${baseUrl}?acf_format=standard`;
+};
+
+const fetchData: FetchData = async (entity, id, params = {}, isInfinite = false) => {
+  const url = getRequestUrl(entity);
+
+  const response = await fetch(url);
+
+  if (isInfinite) {
+    const pageCount = Number(response.headers.get('x-wp-totalpages'));
+
+    const result = await Promise.all([...new Array(pageCount)].map(async (_, index) => {
+      const loopUrl = getRequestUrl(entity, {
+        page: String(index + 1),
+        per_page: '30',
+        ...params,
+      });
+
+      const loopResponse = await fetch(loopUrl);
+      const loopResult = await loopResponse.json();
+
+      return loopResult;
+    }));
+
+    return result.flat();
+  }
+
+  const result = await response.json();
+
+  return result;
+};
+
+const getContext = async (data: Page) => {
+  const options = await fetchData(endpoints.options);
+  const articles = await fetchData(endpoints.posts, undefined, undefined, true);
+  const common = {
+    metadata: { title: data.title.rendered },
+    options: {
+      ...options,
+      articles: {
+        ...options.articles,
+        list: articles,
+      },
+    },
+  };
+
+  if (data.type === 'page') {
+    return {
+      ...common,
+      content: data.acf,
+    };
+  }
+
+  return common;
+};
+
+const getPath = ({ slug }: Page) => paths?.[slug] ?? `/${slug}`;
+const getTemplate = ({ slug }: Page) => templates?.[slug] ?? templates.odpornosc;
+
+export const createPages: GatsbyNode['createPages'] = async ({ actions }) => {
+  const { createPage } = actions;
+
+  const pages: Array<Page> = await fetchData(endpoints.pages);
+
+  await Promise.all(pages.map(async page => {
+    if (page === undefined) return;
+
+    const pagePath = getPath(page);
+    const template = getTemplate(page);
+    const context = await getContext(page);
+
+    createPage({
+      component: template,
+      context,
+      path: pagePath,
+    });
+  }));
+};
 
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {
   actions.setBabelPreset({
@@ -17,15 +122,5 @@ export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions
     },
   });
 };
-// export const config: GatsbyNode = {
-//   onCreateBabelConfig: ({ actions }) => {
-//     actions.setBabelPreset({
-//       name: 'babel-preset-gatsby',
-//       options: {
-//         reactRuntime: 'automatic',
-//       },
-//     });
-//   },
-// };
 
-// export default config;
+export { };

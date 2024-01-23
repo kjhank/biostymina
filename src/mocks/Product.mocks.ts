@@ -7,7 +7,7 @@ import { articlesList } from './global.mocks';
 
 export const header: PageHeader = {
   background: '',
-  fileLink: {
+  file: {
     text: 'Zobacz ulotkę',
     url: '#',
   },
@@ -124,8 +124,8 @@ export const warnings: Warnings = {
 };
 
 export const articles: ArticlesList = {
-  articles: articlesList,
   heading: 'Zainspiruj się naszymi artykułami',
+  list: articlesList,
   more: {
     text: 'Zobacz więcej artykułów',
     url: '/artykuly',

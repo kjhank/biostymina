@@ -3,13 +3,13 @@ import { ArticlesList, Container } from '@/components';
 import { type ArticlesProps } from './Articles.types';
 
 export const Articles = ({
-  heading, articles, more,
+  heading, list: articles, more,
 }: ArticlesProps) => (
   <ArticlesSection>
     <Container>
       <ArticlesList
-        articles={articles} heading={heading}
-        headingAsBrow more={more}
+        heading={heading} headingAsBrow
+        list={articles} more={more}
       />
     </Container>
   </ArticlesSection>

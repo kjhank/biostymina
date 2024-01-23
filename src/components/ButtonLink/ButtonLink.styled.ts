@@ -8,13 +8,15 @@ export const linkStyles = css<ButtonStyledProps>`
   justify-content: center;
   align-items: center;
   height: ${({ $size }) => ($size === 'small' ? '48px' : '70px')};
-  padding-inline: ${({ theme }) => theme.getMin(35)};
+  outline: 2px solid transparent;
+  outline-offset: -2px;
   border-radius: ${({ $size }) => ($size === 'regular' ? '35px' : '24px')};
   background-color: ${({ theme, $variant }) => ($variant === 'dark' ? theme.colors.brand : theme.colors.highlight)};
   color: #fff;
   font-family: ${({ theme }) => theme.fonts.heading};
-  transition: ${({ theme }) => `background-color ${theme.transitions.fast}`};
+  transition: ${({ theme }) => `background-color ${theme.transitions.fast}, outline-color ${theme.transitions.default}, outline-offset ${theme.transitions.fast}`};
   cursor: pointer;
+  padding-inline: ${({ theme }) => theme.getMin(35)};
 
   > svg {
     fill: currentColor;
@@ -23,9 +25,19 @@ export const linkStyles = css<ButtonStyledProps>`
   &:hover {
     background-color: ${({ theme, $variant }) => $variant === 'dark' && theme.colors.highlight};
   }
+
+  &:focus {
+    outline-color: ${({ theme }) => theme.colors.highlight};
+    outline-offset: 2px;
+  }
+
+  &:active {
+    outline-color: ${({ theme }) => theme.colors.highlight};
+    outline-offset: 0;
+  }
 `;
 
-export const LinkNode = styled(Link)<ButtonStyledProps>`
+export const LinkNode = styled(Link) <ButtonStyledProps>`
   ${linkStyles};
 `;
 

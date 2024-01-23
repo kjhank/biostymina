@@ -7,7 +7,7 @@ import { type PageHeaderProps } from './PageHeader.types';
 import { Container } from '../Container/Container';
 
 export const PageHeader = ({
-   className, heading, hasLink, fileLink,
+   className, heading, hasLink, file: fileLink,
 }: PageHeaderProps) => (
   <HeaderNode className={className}>
     <BlendWrapper $isWhite>

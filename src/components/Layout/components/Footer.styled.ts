@@ -116,18 +116,18 @@ export const Navigation = styled.nav`
   }
 `;
 
-export const Registration = styled.p`
+export const Registration = styled.article`
   padding-inline-end: ${({ theme }) => theme.getMin(174)};
 `;
 
-export const Legal = styled.p`
+export const Legal = styled.article`
   border-inline-start: 1px solid #fff;
   margin-block-end: ${({ theme }) => theme.getMin(34)};
   padding-block-end: ${({ theme }) => theme.getMin(7)};
   padding-inline: ${({ theme }) => `${theme.getMin(104)} 11%`};
 `;
 
-export const FinePrint = styled.p`
+export const FinePrint = styled.article`
   flex: 1;
   padding-block-start: ${({ theme }) => theme.getMin(20)};
   font-size: ${({ theme }) => theme.getClamped(12)};
@@ -135,7 +135,7 @@ export const FinePrint = styled.p`
   letter-spacing: 0.5px;
 `;
 
-export const Safety = styled.p`
+export const Safety = styled.article`
   width: 100%;
   font-size: clamp(25px, 0.83vw + 1rem, 32px);
   font-family: 'Proxima Nova', sans-serif;

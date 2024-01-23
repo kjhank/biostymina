@@ -17,7 +17,7 @@ export const Recommendations = ({
 
         <WPImage
           alt="opakowanie Biostymina" className="recommendations-package"
-          imageData={{ url: image }}
+          imageData={image}
         />
       </div>
     </Container>

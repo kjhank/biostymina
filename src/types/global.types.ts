@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react';
 import { type ACFFile } from './wordpress.types';
+import { type Slug } from '@/constants/constants.types';
 
 export type NavLink = {
   text: ReactNode;
@@ -15,7 +16,7 @@ export type ArticleThumb = {
 
 export type ArticlesList = {
   heading: string;
-  articles: Array<ArticleThumb>;
+  list: Array<ArticleThumb>;
   more: NavLink;
 };
 
@@ -33,9 +34,19 @@ export type PageHeader = {
 } & (
     {
       hasLink: true;
-      fileLink: NavLink;
+      file: NavLink;
     } | {
       hasLink?: false | never;
-      fileLink?: never;
+      file?: never;
     }
   );
+
+export type Template = 'aloe' | 'history' | 'home' | 'product';
+
+export type Templates = Record<Slug, string>;
+
+export type RequestParams = string |
+  Array<Array<string>> |
+  Record<string, string> |
+  URLSearchParams |
+  undefined;

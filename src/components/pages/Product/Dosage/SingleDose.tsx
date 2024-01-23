@@ -18,7 +18,7 @@ export const SingleDose = ({
       </ItemInner>
       <WPImage
         alt="ampułka z cieczą" className="dosage-ampoule"
-        imageData={{ url: image }}
+        imageData={image}
       />
     </Item>
   );

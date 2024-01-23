@@ -1,37 +1,36 @@
-import {
- type ArticlesList, type NavLink, type Video,
-} from '@/types/global.types';
+import { type ArticlesList, type Video } from '@/types/global.types';
+import { type ACFImage, type ACFLink } from '../wordpress.types';
 
 export type Hero = {
-  background: string;
+  background: ACFImage;
   heading: string;
-  link: NavLink;
+  link: ACFLink;
   subheading: string;
 };
 
 export type Product = {
   brow: string;
-  decoration: string;
+  decoration: ACFImage;
   heading: string;
-  image: string;
-  link: NavLink;
+  image: ACFImage;
+  link: ACFLink;
   text: string;
 };
 
 export type Aloe = {
   brow: string;
-  decoration: string;
+  decoration: ACFImage;
   heading: string;
-  link: NavLink;
+  link: ACFLink;
   text: string;
 };
 
 export type History = {
   brow: string;
-  decoration: string;
+  decoration: ACFImage;
   heading: string;
-  image: string;
-  link: NavLink;
+  image: ACFImage;
+  link: ACFLink;
   text: string;
 };
 

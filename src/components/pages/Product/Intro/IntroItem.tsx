@@ -13,7 +13,7 @@ export const IntroItem = ({ image, text }: IntroItemProps) => {
     <Item>
       <WPImage
         alt="" className="intro-image"
-        imageData={{ url: image }}
+        imageData={image}
       />
       <Text dangerouslySetInnerHTML={{ __html: sanitizedText }} />
     </Item>

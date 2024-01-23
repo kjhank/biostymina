@@ -18,7 +18,7 @@ export const Cultivation = ({
       <Container>
         <WPImage
           alt="" className="cultivation-decoration"
-          imageData={{ url: decoration }}
+          imageData={decoration}
         />
         <Wrapper>
           <Brow $isLighter as="h2">{heading}</Brow>

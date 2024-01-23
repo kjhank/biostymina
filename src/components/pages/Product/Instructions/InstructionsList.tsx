@@ -10,7 +10,7 @@ export const InstructionsList = ({ list }: InstructionsListProps) => (
       <Item key={item.text}>
         <WPImage
           alt="dłoń trzymająca ampułkę" className={`instructions-step-${index + 1}`}
-          imageData={{ url: item.image }}
+          imageData={item.image}
         />
         {item.heading && <ItemHeading>{item.heading}</ItemHeading>}
         {item.hasSeparator && <hr />}

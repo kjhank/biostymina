@@ -59,9 +59,9 @@ export const history: History = {
 };
 
 export const articles: ArticlesSection = {
-  articles: articlesList,
   brow: 'Odporność',
   heading: 'Zainspiruj się naszymi artykułami',
+  list: articlesList,
   more: {
     text: 'Zobacz więcej artykułów',
     url: '/artykuly',

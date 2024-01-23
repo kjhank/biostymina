@@ -21,18 +21,18 @@ export const History = ({
       <HistoryContainer>
         <WPImage
           alt="probówka" className="history-section-image"
-          imageData={{ url: image }}
+          imageData={image}
         />
         <HistoryInner>
           <div>
             <Brow>{brow}</Brow>
             <SectionHeading dangerouslySetInnerHTML={{ __html: sanitizedHeading }} />
             <Text as="article" dangerouslySetInnerHTML={{ __html: sanitizedText }} />
-            <ButtonLink to={link.url}>{link.text}</ButtonLink>
+            <ButtonLink to={link.url}>{link.title}</ButtonLink>
           </div>
           <WPImage
             alt="" className="history-section-decoration"
-            imageData={{ url: decoration }}
+            imageData={decoration}
           />
         </HistoryInner>
       </HistoryContainer>

@@ -15,7 +15,7 @@ export const Dosage = ({
       <Wrapper>
         <WPImage
           alt="uśmiechnięci ludzie, dwoje dorosłych i dwoje dzieci" className="dosage-decoration"
-          imageData={{ url: image }}
+          imageData={image}
         />
         <List>
           {doses.map(dose => <SingleDose key={dose.text} {...dose} />)}

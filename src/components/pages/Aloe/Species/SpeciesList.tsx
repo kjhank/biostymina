@@ -12,7 +12,7 @@ export const SpeciesList = ({ species }: SpeciesListProps) => (
         <SingleSpecies key={item.name}>
           <WPImage
             alt={item.name} className="species-item"
-            imageData={{ url: item.image }}
+            imageData={item.image}
           />
           <h3 dangerouslySetInnerHTML={{ __html: sanitizedName }} key={item.name} />
         </SingleSpecies>
