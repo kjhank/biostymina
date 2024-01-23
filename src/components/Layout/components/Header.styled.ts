@@ -27,7 +27,7 @@ export const List = styled.ul`
 export const HeaderNode = styled.header<HeaderPropsStyled>`
   position: sticky;
   inset: 0 0 auto;
-  z-index: 1;
+  z-index: 10;
   padding-block: ${({ theme }) => theme.getMin(42)};
   background-color: ${({ $isFilled }) => ($isFilled ? '#fff' : 'transparent')};
   font-weight: 600;

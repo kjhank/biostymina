@@ -5,10 +5,7 @@ export const htmlAttributes = { lang: 'pl' };
 
 export const navLinks: Array<NavLink> = [
   {
-    text: <>
-      Biostymina
-      <sup>®</sup>
-    </>,
+    text: 'Biostymina®',
     url: '/biostymina',
   },
   {
@@ -25,4 +22,4 @@ export const navLinks: Array<NavLink> = [
   },
 ];
 
-export const pathsWithFootnotes = ['/', '/biostymina'];
+export const pathsWithFootnotes = ['/', '/biostymina/'];

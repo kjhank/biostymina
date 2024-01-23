@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-
-export const Wrapper = styled.main``;
+import { type BrowProps } from './styled.types';
 
 export const Text = styled.p`
   font-size: 18px;
@@ -12,8 +11,8 @@ export const StyledLink = styled(Link)`
   text-decoration: underline;
 `;
 
-export const Brow = styled.p`
-  font-weight: 600;
+export const Brow = styled.p<BrowProps>`
+  font-weight: ${({ $isLighter }) => ($isLighter ? 500 : 600)};
   font-size: ${({ theme }) => theme.getClamped(42)};
   font-family: ${({ theme }) => theme.fonts.alt};
 

@@ -14,13 +14,28 @@ export type ArticleThumb = {
 };
 
 export type ArticlesList = {
-  heading: ReactNode;
+  heading: string;
   articles: Array<ArticleThumb>;
   more: NavLink;
 };
 
 export type Video = {
-  mp4?: ACFFile;
   poster: string;
-  webm: ACFFile;
+  sources: {
+    mp4?: Partial<ACFFile>;
+    webm: Partial<ACFFile>;
+  };
 };
+
+export type PageHeader = {
+  background: string;
+  heading: string;
+} & (
+    {
+      hasLink: true;
+      fileLink: NavLink;
+    } | {
+      hasLink?: false | never;
+      fileLink?: never;
+    }
+  );

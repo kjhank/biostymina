@@ -32,3 +32,7 @@ export const LinkNode = styled(Link)<ButtonStyledProps>`
 export const ButtonNode = styled.button<ButtonStyledProps>`
   ${linkStyles};
 `;
+
+export const ExternalLinkNode = styled.a<ButtonStyledProps>`
+  ${linkStyles};
+`;

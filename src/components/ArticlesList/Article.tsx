@@ -1,9 +1,9 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import { Arrow } from '@/icons';
 import { type ArticleThumb } from '@/types';
 import {
  Item, Link, Timestamp, Title,
 } from './Articles.styled';
+import { WPImage } from '../WPImage/WPImage';
 
 export const Article = ({
   title, timestamp, thumbnail, url,
@@ -12,9 +12,9 @@ export const Article = ({
 
   return (
     <Item key={title}>
-      <StaticImage
+      <WPImage
         alt="" className="article-thumbnail"
-        src="../../images/articles/article-1-thumb.png" width={380}
+        imageData={{ url: thumbnail }}
       />
       <Title>{title}</Title>
       <Timestamp>{formattedTimestamp}</Timestamp>
