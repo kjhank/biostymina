@@ -1,44 +1,46 @@
+import { type ACFImage } from '../wordpress.types';
+
 export type IntroItem = {
-  image: string;
+  image: ACFImage;
   text: string;
 };
 
 export type Intro = {
-  items: Array<IntroItem>;
+  introItems: Array<IntroItem>;
 }
 
 export type Ingredients = {
   amount: string;
-  decoration: string;
-  descriptionList: Array<string>;
+  decoration: ACFImage;
+  descriptionList: Array<{ item: string }>;
   heading: string;
-  image: string;
+  image: ACFImage;
   largeText: string;
-  list: Array<string>;
+  list: Array<{ item: string }>;
 };
 
 export type Recommendations = {
   heading: string;
-  image: string;
-  list: Array<string>;
+  image: ACFImage;
+  list: Array<{ item: string }>;
 };
 
 export type Dose = {
   heading: string;
-  image: string;
+  image: ACFImage;
   text: string;
 };
 
 export type Dosage = {
   heading: string;
   doses: Array<Dose>;
-  image: string;
+  image: ACFImage;
 };
 
 export type InstructionStep = {
   hasSeparator?: boolean;
   heading?: string;
-  image: string;
+  image: ACFImage;
   text: string;
 };
 
@@ -51,5 +53,5 @@ export type Instructions = {
 }
 
 export type Warnings = {
-  list: Array<string>;
+  list: Array<{ item: string }>;
 }

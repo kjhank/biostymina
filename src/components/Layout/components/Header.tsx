@@ -12,7 +12,7 @@ import { useDebounce, useLayout } from '@/hooks';
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
-  const { location } = useLayout();
+  const { location, toggleModal } = useLayout();
   const isScrolledDebounced = useDebounce(isScrolled, 200);
 
   const handleScroll = () => {
@@ -48,7 +48,7 @@ export const Header = () => {
             ))}
           </List>
         </Navigation>
-        <ButtonLink onClick={() => { }} size="small">Gdzie kupić?</ButtonLink>
+        <ButtonLink onClick={toggleModal} size="small">Gdzie kupić?</ButtonLink>
       </Container>
     </HeaderNode>
   );

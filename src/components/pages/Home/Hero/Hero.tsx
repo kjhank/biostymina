@@ -1,5 +1,5 @@
 import {
- ButtonLink, Container, WPImage,
+  ButtonLink, Container, WPImage,
 } from '@/components';
 import { type Hero as HeroProps } from '@/types/content/home.types';
 import { Heading, SubHeading } from './Hero.styled';
@@ -14,11 +14,11 @@ export const Hero = ({
         <Heading as="p">{heading}</Heading>
         <SubHeading as="p">{subheading}</SubHeading>
       </h1>
-      <ButtonLink to={link.url}>{link.text}</ButtonLink>
+      <ButtonLink to={link.url}>{link.title}</ButtonLink>
     </Container>
     <WPImage
       alt="" className="hero-section-decoration"
-      imageData={{ url: background }}
+      imageData={background}
       loading="eager"
     />
   </Section>

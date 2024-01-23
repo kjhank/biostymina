@@ -3,7 +3,7 @@ import { Articles } from './Articles';
 import { type ArticlesListProps } from './ArticlesList.types';
 
 export const ArticlesList = ({
-  articles, brow, heading, headingAsBrow = false, more,
+  list: articles, brow, heading, headingAsBrow = false, more,
 }: ArticlesListProps) => (
   <>
     {brow && <Brow>{brow}</Brow>}

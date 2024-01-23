@@ -35,7 +35,7 @@ export const Video = ({
   const sourceNodes = Object.entries(sources).map(([format, source]) => (
     <source
       key={format} src={source.url}
-      type={source.subtype}
+      type={source.mime_type}
     />
   ));
 

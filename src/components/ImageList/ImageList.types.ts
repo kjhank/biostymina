@@ -1,5 +1,5 @@
 export type ImageListProps = {
-  items: Array<string>;
+  items: Array<{ item: string }>;
 }
 
 export type ImageListPropsStyled = {

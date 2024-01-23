@@ -65,8 +65,8 @@ export const cultivation: Cultivation = {
 };
 
 export const articles: ArticlesList = {
-  articles: articlesList,
   heading: 'Zainspiruj się naszymi artykułami',
+  list: articlesList,
   more: {
     text: 'Zobacz więcej artykułów',
     url: '/artykuly',

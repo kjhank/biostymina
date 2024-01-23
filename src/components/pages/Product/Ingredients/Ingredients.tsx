@@ -16,23 +16,23 @@ export const Ingredients = ({
       <IngredientsContainer>
         <WPImage
           alt="" className="ingredients-decoration"
-          imageData={{ url: decoration }}
+          imageData={decoration}
         />
         <IngredientsInner>
           <div>
             <Heading>{heading}</Heading>
             <Amount dangerouslySetInnerHTML={{ __html: sanitizedAmount }} />
             <List>
-              {descriptionList.map(item => <li key={item}>{item}</li>)}
+              {descriptionList.map(({ item }) => <li key={item}>{item}</li>)}
             </List>
             <LargeText>{largeText}</LargeText>
             <List>
-              {list.map(item => <li key={item}>{item}</li>)}
+              {list.map(({ item }) => <li key={item}>{item}</li>)}
             </List>
           </div>
           <WPImage
             alt="ampułki z cieczką" className="ingredients-image"
-            imageData={{ url: image }}
+            imageData={image}
           />
         </IngredientsInner>
       </IngredientsContainer>

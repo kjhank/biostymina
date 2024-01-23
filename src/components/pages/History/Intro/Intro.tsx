@@ -9,15 +9,15 @@ export const Intro = ({
     <Container>
       <WPImage
         alt="" className="history-intro-decoration"
-        imageData={{ url: decoration }}
+        imageData={decoration}
         loading="eager"
       />
       <Text>{text}</Text>
       <WPImage
         alt="opakowanie Biostyminy oraz dwie ampułki" className="history-intro-image"
-        imageData={{ url: image }}
+        imageData={image}
         loading="eager"
       />
     </Container>
   </IntroSection>
-  );
+);

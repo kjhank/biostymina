@@ -1,6 +1,8 @@
+import { type ACFImage } from '../wordpress.types';
+
 export type HistoryIntro = {
-  decoration: string;
-  image: string;
+  decoration: ACFImage;
+  image: ACFImage;
   text: string;
 }
 
@@ -12,4 +14,4 @@ export type TimelineItem = {
   text: string;
 };
 
-export type Timeline = { items: Array<TimelineItem> };
+export type Timeline = Array<TimelineItem>;

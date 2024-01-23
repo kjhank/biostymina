@@ -6,13 +6,13 @@ import { type ArticlesSection as ArticlesProps } from '@/types/content/home.type
 import { Section } from '../styled';
 
 export const Articles = ({
-  articles, brow, heading, more,
+  list: articles, brow, heading, more,
 }: ArticlesProps) => (
   <Section className="articles-section">
     <Container>
       <Brow>{brow}</Brow>
       <ArticlesList
-        articles={articles} heading={heading}
+        heading={heading} list={articles}
         more={more}
       />
     </Container>

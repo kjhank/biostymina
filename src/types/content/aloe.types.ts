@@ -1,5 +1,7 @@
+import { type ACFImage } from '../wordpress.types';
+
 export type Species = {
-  image: string;
+  image: ACFImage;
   name: string;
 }
 
@@ -11,13 +13,13 @@ export type SpeciesSection = {
 
 export type AboutAloe = {
   heading: string;
-  items: Array<string>;
+  items: Array<{ item: string }>;
 }
 
 export type Cultivation = {
-  decoration: string;
+  decoration: ACFImage;
   description: string;
   heading: string;
-  items: Array<string>;
+  items: Array<{ item: string }>;
   map: string;
 }
