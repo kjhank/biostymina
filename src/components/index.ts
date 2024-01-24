@@ -6,3 +6,4 @@ export * from './PageHeader/PageHeader';
 export * from './ImageList/ImageList';
 export * from './WPImage/WPImage';
 export * from './Video/Video';
+export * from './WYSIWYG/WYSIWYG';

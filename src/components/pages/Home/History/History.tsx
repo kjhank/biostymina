@@ -15,6 +15,7 @@ export const History = ({
 }: HistoryProps) => {
   const sanitizedText = sanitize(text, sanitizeConfig);
   const sanitizedHeading = sanitize(heading, { allowedTags: ['sup'] });
+  const linkPath = new URL(link.url).pathname;
 
   return (
     <Section className="history-section">
@@ -28,7 +29,7 @@ export const History = ({
             <Brow>{brow}</Brow>
             <SectionHeading dangerouslySetInnerHTML={{ __html: sanitizedHeading }} />
             <Text as="article" dangerouslySetInnerHTML={{ __html: sanitizedText }} />
-            <ButtonLink to={link.url}>{link.title}</ButtonLink>
+            <ButtonLink to={linkPath}>{link.title}</ButtonLink>
           </div>
           <WPImage
             alt="" className="history-section-decoration"

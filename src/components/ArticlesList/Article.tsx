@@ -1,25 +1,28 @@
 import { Arrow } from '@/icons';
-import { type ArticleThumb } from '@/types';
 import {
- Item, Link, Timestamp, Title,
+  Item, Link, Timestamp, Title,
 } from './Articles.styled';
-// import { WPImage } from '../WPImage/WPImage';
+import { type ArticleProps } from './ArticlesList.types';
+import { WPImage } from '../WPImage/WPImage';
+import { formatDate } from '@/utils';
 
 export const Article = ({
-  title, timestamp, thumbnail, url,
-}: ArticleThumb) => {
-  const formattedTimestamp = new Intl.DateTimeFormat('pl-PL', { dateStyle: 'long' }).format(new Date(timestamp));
+  acf, title, date, slug,
+}: ArticleProps) => {
+  const formattedTimestamp = formatDate(date);
 
   return (
-    <Item key={title}>
-      {/* <WPImage
+    <Item>
+      {acf.articledata?.headerImage && (
+      <WPImage
         alt="" className="article-thumbnail"
-        imageData={{ url: thumbnail }}
-      /> */}
-      <Title>{title}</Title>
-      <Timestamp>{formattedTimestamp}</Timestamp>
+        imageData={acf.articledata?.headerImage}
+      />
+)}
+      <Title>{title.rendered}</Title>
+      <Timestamp dateTime={date}>{formattedTimestamp}</Timestamp>
       <Link
-        aria-label={`otwórz artykuł "${title}"`} to={url}
+        aria-label={`otwórz artykuł "${title.rendered}"`} to={`/odpornosc/${slug}`}
         variant="bright"
       >
         <Arrow />

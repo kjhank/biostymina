@@ -1,3 +1,4 @@
+import { type PageProps as GatsbyPageProps } from 'gatsby';
 import {
   type AboutAloe, type Cultivation, type SpeciesSection,
 } from './content/aloe.types';
@@ -13,7 +14,8 @@ import {
   type Intro, type Recommendations, type Warnings,
 } from './content/product.types';
 import {
-  type ArticlesList, type PageHeader,
+  type ArticlesList,
+  type PageHeader, type Prettify,
 } from './global.types';
 import { type ACFImage, type ACFLink } from './wordpress.types';
 
@@ -25,6 +27,7 @@ export type LayoutHeader = {
 };
 
 export type PageMetadata = {
+  date: string;
   title: string;
 }
 
@@ -42,21 +45,22 @@ export type WhereToBuyModal = {
 };
 
 export type PageOptions = {
-  articles: Array<any>;
+  articles: ArticlesList;
   globalFooter: GlobalFooter;
   layoutHeader: LayoutHeader;
   whereToBuyModal: WhereToBuyModal;
 }
 
 export type PageContext<T = unknown> = {
+  body: string;
   content: { pageHeader: PageHeader };
   metadata: PageMetadata;
   options: PageOptions;
 } & T;
 
-export type PageProps<T> = {
+export type PageProps<T = unknown> = {
   pageContext: T;
-}
+} & GatsbyPageProps
 
 export type HistoryContext = PageContext<{
   content: {
@@ -78,6 +82,9 @@ export type AloeContext = PageContext<{
 
 export type HomeContext = PageContext<{
   content: {
+    articlesSection: {
+      heading: string;
+    };
     heroSection: Hero;
     productSection: Product;
     aloeSection: Aloe;
@@ -97,7 +104,16 @@ export type ProductContext = PageContext<{
   };
 }>
 
-export type HistoryPageProps = PageProps<HistoryContext>;
-export type AloePageProps = PageProps<AloeContext>;
-export type HomePageProps = PageProps<HomeContext>;
-export type ProductPageProps = PageProps<ProductContext>;
+export type GenericContext = PageContext<{
+  content: {
+    articledata?: {
+      headerImage?: ACFImage;
+    };
+  };
+}>;
+
+export type HistoryPageProps = Prettify<PageProps<HistoryContext>>;
+export type AloePageProps = Prettify<PageProps<AloeContext>>;
+export type HomePageProps = Prettify<PageProps<HomeContext>>;
+export type ProductPageProps = Prettify<PageProps<ProductContext>>;
+export type GenericPageProps = Prettify<PageProps<GenericContext>>;

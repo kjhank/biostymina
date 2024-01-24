@@ -14,6 +14,11 @@ export const ModalWrapper = styled.dialog`
     aspect-ratio: 1;
     padding: 0;
   }
+
+  &::backdrop {
+    background-color: rgb(255 255 255 / 30%);
+    backdrop-filter: blur(15px);
+  }
 `;
 
 export const List = styled.ul`

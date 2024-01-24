@@ -109,9 +109,9 @@ export const HeaderNode = styled.header`
 
   &.aloe-header {
     background-image: url(${aloeHeaderBg});
-    background-size: 77.08%;
     background-position-x: ${({ theme }) => theme.getMax(-350)};
     background-position-y: 45%;
+    background-size: 77.08%;
 
     /* // TODO: these sizes */
 
@@ -161,6 +161,71 @@ export const HeaderNode = styled.header`
         width: ${({ theme }) => theme.getMin(511.8)};
 
         &.bubble-aloe-header {
+          background-color: transparent;
+        }
+      }
+
+      ${Bubble}:last-child {
+        width: ${({ theme }) => theme.getMin(936.8)};
+        margin-inline-end: ${({ theme }) => theme.getMax(-638.3)};
+      }
+    }
+  }
+
+
+  &.articles-header {
+    background-color: #e8faf2;
+    background-image: url(${articlesHeaderBg});
+    background-size: 100%;
+    background-position-x: ${({ theme }) => theme.getMax(-800.0)};
+    background-position-y: 80%;
+
+    ${BubblesWrapper}.bubbles-wrapper-1 {
+      ${Bubble}:first-child {
+        width: ${({ theme }) => theme.getMin(511.8)};
+        margin-inline-start: ${({ theme }) => theme.getMax(-168)};
+
+        &.bubble-articles-header {
+          background-color: transparent;
+        }
+      }
+
+      ${Bubble}:nth-child(2) {
+        width: ${({ theme }) => theme.getMin(511.8)};
+
+        &.bubble-articles-header {
+          background-color: transparent;
+        }
+      }
+
+      ${Bubble}:nth-child(3) {
+        width: ${({ theme }) => theme.getMin(743.8)};
+
+        > h1 {
+          display: block;
+        }
+      }
+
+      ${Bubble}:last-child {
+        width: ${({ theme }) => theme.getMin(414.74)};
+        margin-inline-end: ${({ theme }) => theme.getMax(-300.6)};
+      }
+    }
+
+    ${BubblesWrapper}.bubbles-wrapper-2 {
+      ${Bubble}:first-child {
+        width: ${({ theme }) => theme.getMin(710.01)};
+        margin-inline-start: ${({ theme }) => theme.getMax(-298.5)};
+
+        &.bubble-articles-header {
+          background-color: transparent;
+        }
+      }
+
+      ${Bubble}:nth-child(2) {
+        width: ${({ theme }) => theme.getMin(511.8)};
+
+        &.bubble-articles-header {
           background-color: transparent;
         }
       }
@@ -232,10 +297,6 @@ export const HeaderNode = styled.header`
         }
       }
     }
-  }
-
-  &.articles-header {
-    background-image: url(${articlesHeaderBg});
   }
 `;
 

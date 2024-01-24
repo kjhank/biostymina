@@ -11,6 +11,7 @@ export const Product = ({
 }: ProductProps) => {
   const sanitizedText = sanitize(text, { allowedTags: ['sup'] });
   const sanitizedHeading = sanitize(heading, { allowedTags: ['br'] });
+  const linkPath = new URL(link.url).pathname;
 
   return (
     <Section className="product-section">
@@ -25,7 +26,7 @@ export const Product = ({
             <Brow>{brow}</Brow>
             <SectionHeading dangerouslySetInnerHTML={{ __html: sanitizedHeading }} />
             <Text dangerouslySetInnerHTML={{ __html: sanitizedText }} />
-            <ButtonLink to={link.url}>{link.title}</ButtonLink>
+            <ButtonLink to={linkPath}>{link.title}</ButtonLink>
           </div>
           <WPImage
             alt="opakowanie Biostymina" className="product-section-package"

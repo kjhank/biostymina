@@ -20,6 +20,7 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 const templates: Templates = {
   'aloes-drzewiasty': path.resolve('./src/templates/aloe.tsx'),
   biostymina: path.resolve('./src/templates/product.tsx'),
+  generic: path.resolve('./src/templates/generic.tsx'),
   'historia-marki': path.resolve('./src/templates/history.tsx'),
   odpornosc: path.resolve('./src/templates/articles.tsx'),
   'strona-glowna': path.resolve('./src/templates/home.tsx'),
@@ -32,7 +33,7 @@ const getRequestUrl = (endpoint: string, params?: RequestParams) => {
   if (params && Object.keys(params).length > 0) {
     const urlParamas = new URLSearchParams(params);
 
-    return `${baseUrl}?acf_format=standard${urlParamas.toString()}`;
+    return `${baseUrl}?acf_format=standard&${urlParamas.toString()}`;
   }
 
   return `${baseUrl}?acf_format=standard`;
@@ -67,51 +68,76 @@ const fetchData: FetchData = async (entity, id, params = {}, isInfinite = false)
   return result;
 };
 
-const getContext = async (data: Page) => {
+export const createPages: GatsbyNode['createPages'] = async ({ actions }) => {
+  const allArticles: Array<Page> = await fetchData(endpoints.posts, undefined, undefined, true);
+  const pages: Array<Page> = await fetchData(endpoints.pages);
   const options = await fetchData(endpoints.options);
-  const articles = await fetchData(endpoints.posts, undefined, undefined, true);
-  const common = {
-    metadata: { title: data.title.rendered },
-    options: {
-      ...options,
-      articles: {
-        ...options.articles,
-        list: articles,
-      },
-    },
+
+  const getPath = ({ slug, type }: Page) => {
+    if (type === 'page') {
+      return paths?.[slug] ?? `/${slug}`;
+    }
+
+    return `/odpornosc/${slug}`;
   };
 
-  if (data.type === 'page') {
+  const getTemplate = ({ slug }: Page) => templates?.[slug] ?? templates.generic;
+
+  const getContext = (data: Page) => {
+    const common = {
+      body: data.content.rendered,
+      metadata: {
+        date: data.date,
+        title: data.title.rendered,
+      },
+      options: {
+        ...options,
+        articles: {
+          ...options.articles,
+          list: allArticles.slice(0, 3),
+        },
+      },
+    };
+
+    if (data.type === 'page') {
+      if (data.slug === 'odpornosc') {
+        return {
+          ...common,
+          content: data.acf,
+          options: {
+            ...options,
+            articles: {
+              ...options.articles,
+              list: allArticles,
+            },
+          },
+        };
+      }
+    }
+
     return {
       ...common,
-      content: data.acf,
+      content: data?.acf ?? {},
     };
-  }
+  };
 
-  return common;
-};
-
-const getPath = ({ slug }: Page) => paths?.[slug] ?? `/${slug}`;
-const getTemplate = ({ slug }: Page) => templates?.[slug] ?? templates.odpornosc;
-
-export const createPages: GatsbyNode['createPages'] = async ({ actions }) => {
   const { createPage } = actions;
 
-  const pages: Array<Page> = await fetchData(endpoints.pages);
-
-  await Promise.all(pages.map(async page => {
+  // await Promise.all(
+  [...pages, ...allArticles].forEach(page => {
     if (page === undefined) return;
 
     const pagePath = getPath(page);
     const template = getTemplate(page);
-    const context = await getContext(page);
+    const context = getContext(page);
 
     createPage({
       component: template,
       context,
       path: pagePath,
     });
-  }));
+  });
+  // );
 };
 
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {
