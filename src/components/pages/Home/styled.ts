@@ -10,9 +10,9 @@ export const Section = styled.section<HomeSectionStyledProps>`
   &.hero-section {
     .hero-section-decoration {
       position: absolute;
-      inset: ${({ theme }) => `${theme.getMax(-222)} ${theme.getMax(-65)} auto auto`};
+      inset: ${({ theme }) => `${theme.getMax(-222)} auto auto ${theme.getMin(475.9)}`};
       z-index: -1;
-      inline-size: 78.6%;
+      inline-size: ${({ theme }) => theme.getMin(1509)};
     }
 
     a {

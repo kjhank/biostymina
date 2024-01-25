@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 import { Container as GenericContainer } from '@/components';
-import leftBg from '@/images/layout/footer-left.png';
-import rightBg from '@/images/layout/footer-right.png';
+import backgroundImage from '@/images/layout/footer.png';
 
 export const Container = styled(GenericContainer)`
   b, strong {
@@ -14,9 +14,8 @@ export const Container = styled(GenericContainer)`
 `;
 
 export const FooterNode = styled.footer`
-  overflow-x: hidden;
-  margin-block-end: ${({ theme }) => theme.getMin(52)};
   white-space: pre-line;
+  margin-block-end: ${({ theme }) => theme.getMin(52)};
 
   a {
     color: ${({ theme }) => theme.colors.highlight};
@@ -35,39 +34,58 @@ export const FootnotesPart = styled.section`
 `;
 
 export const BottomWrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
+  background-image: linear-gradient(${({ theme }) => `${rgba(theme.colors.brand, 0.80)}, ${rgba(theme.colors.brand, 0.80)}`}), url(${backgroundImage});
+  background-size: ${({ theme }) => theme.getMin(2829)};
+  background-blend-mode: multiply;
+  background-position-x: 76%;
+  background-position-y: 27%;
 
-  /* padding-inline: 4.8%; */
-  color: #fff;
-  font-size: ${({ theme }) => theme.getClamped(13)};
-  isolation: isolate;
-  gap: ${({ theme }) => theme.getMin(13)};
+  >.container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: ${({ theme }) => theme.getClamped(13)};
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      order: 1;
+      width: ${({ theme }) => theme.getMin(13)};
+      background-color: #fff;
+    }
+  }
 `;
 
 const commonStyle = css`
   position: relative;
+  overflow-y: hidden;
   font-family: ${({ theme }) => theme.fonts.alt};
   isolation: isolate;
   padding-block-start: ${({ theme }) => theme.getMin(44)};
 `;
 
+const commonPseudoStyle = css`
+  content: '';
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 0 1000px #fff;
+`;
+
 export const LeftPart = styled.section`
   ${commonStyle};
+  order: 0;
   width: 35.4%;
   padding-inline: 4.85% ${({ theme }) => theme.getMin(156)};
 
   &::after {
-    content: '';
-    position: absolute;
-    inset: 0 0 0 ${({ theme }) => theme.getMax(-693)};
-    z-index: -1;
-    opacity: 0.8;
-    border-radius: 0 1000px 1000px 0;
-    background-image: url(${leftBg}), linear-gradient(${({ theme }) => `${theme.colors.brand}, ${theme.colors.brand}`});
-    background-blend-mode: multiply;
-    pointer-events: none;
+    ${commonPseudoStyle};
+    inset: 0 0 0 auto;
+    border-top-right-radius: 150vh;
+    border-bottom-right-radius: 150vh;
   }
 `;
 
@@ -83,19 +101,16 @@ export const Address = styled.address`
 
 export const RightPart = styled.section`
   ${commonStyle};
+  overflow-y: hidden;
   flex: 2;
-  padding-inline-start: ${({ theme }) => theme.getMin(176.2)};
+  order: 2;
+  padding-inline: ${({ theme }) => theme.getMin(176.2)} ${({ theme }) => theme.getMin(80)};
 
   &::after {
-    content: '';
-    position: absolute;
-    inset: 0 ${({ theme }) => theme.getMax(-216)} 0 0;
-    z-index: -1;
-    opacity: 0.8;
-    border-radius: 1000px 0 0 1000px;
-    background-image: url(${rightBg}), linear-gradient(${({ theme }) => `${theme.colors.brand}, ${theme.colors.brand}`});
-    background-blend-mode: multiply;
-    pointer-events: none;
+    ${commonPseudoStyle};
+    inset: 0 auto 0 0;
+    border-bottom-left-radius: 150vh;
+    border-top-left-radius: 150vh;
   }
 `;
 
@@ -110,21 +125,40 @@ export const Navigation = styled.nav`
   gap: ${({ theme }) => theme.getMin(53)};
   width: 100%;
   padding-block: ${({ theme }) => `${theme.getMin(34)} ${theme.getMin(45)}`};
+  font-family: ${({ theme }) => theme.fonts.heading};
 
   > a {
     color: #fff;
   }
+
+  > button {
+    display: inline;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  > a, > button {
+    &:focus,
+    &:hover {
+      outline: none;
+      text-decoration: underline;
+    }
+  }
 `;
 
 export const Registration = styled.article`
-  padding-inline-end: ${({ theme }) => theme.getMin(174)};
+  padding-inline-end: ${({ theme }) => theme.getMin(170)};
 `;
 
 export const Legal = styled.article`
   border-inline-start: 1px solid #fff;
   margin-block-end: ${({ theme }) => theme.getMin(34)};
   padding-block-end: ${({ theme }) => theme.getMin(7)};
-  padding-inline: ${({ theme }) => `${theme.getMin(104)} 11%`};
+  padding-inline: ${({ theme }) => `${theme.getMin(100)} 0`};
 `;
 
 export const FinePrint = styled.article`

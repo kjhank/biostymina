@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const ModalWrapper = styled.dialog`
-  position: relative;
+  position: fixed;
+  inset: calc(1em + 3px) 0 auto;
   width: min(60vw, 100%);
   border-radius: 30px;
   padding: 2.5% 5%;

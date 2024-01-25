@@ -5,11 +5,11 @@ import { Logo } from '@/icons';
 import {
   Container, HeaderNode, HomeLink, List, Navigation, NavLink,
 } from './Header.styled';
-import { navLinks } from '../Layout.static';
 import { ButtonLink } from '@/components/ButtonLink/ButtonLink';
 import { useDebounce, useLayout } from '@/hooks';
+import { type HeaderProps } from '../Layout.types';
 
-export const Header = () => {
+export const Header = ({ modalTriggerLabel, navItems }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const { location, toggleModal } = useLayout();
@@ -39,16 +39,20 @@ export const Header = () => {
             <Logo />
           </HomeLink>
           <List>
-            {navLinks.map(link => (
-              <li key={link.url}>
-                <NavLink $hasHighlight={location?.pathname === link.url} to={link.url}>
-                  {link.text}
-                </NavLink>
-              </li>
-            ))}
+            {navItems.map(({ page }) => {
+              const linkPath = new URL(page.url).pathname;
+
+              return (
+                <li key={page.url}>
+                  <NavLink $hasHighlight={location?.pathname === linkPath} to={linkPath}>
+                    {page.title}
+                  </NavLink>
+                </li>
+              );
+            })}
           </List>
         </Navigation>
-        <ButtonLink onClick={toggleModal} size="small">Gdzie kupić?</ButtonLink>
+        <ButtonLink onClick={toggleModal} size="small">{modalTriggerLabel}</ButtonLink>
       </Container>
     </HeaderNode>
   );

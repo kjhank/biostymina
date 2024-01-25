@@ -1,6 +1,8 @@
 import { type PageProps } from 'gatsby';
 import { type ReactNode } from 'react';
-import { type PageContext, type WhereToBuyModal } from '@/types/pages.types';
+import {
+ type LayoutNav, type PageContext, type WhereToBuyModal,
+} from '@/types/pages.types';
 
 export type LayoutProps = {
   children: ReactNode;
@@ -23,8 +25,14 @@ export type LayoutContextProviderProps = {
   value: LayoutContextProps;
 }
 
+export type HeaderProps = LayoutNav
+
 export type HeaderPropsStyled = {
   $isFilled: boolean;
 };
 
 export type ModalProps = WhereToBuyModal;
+
+export type BlendWrapperStyledProps = {
+  $isWhite?: boolean;
+};

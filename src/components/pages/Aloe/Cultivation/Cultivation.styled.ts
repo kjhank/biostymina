@@ -53,7 +53,7 @@ export const Description = styled.div`
 
 export const Map = styled(RawMap)`
   display: block;
-  width: 84.42%;
+  width: ${({ theme }) => theme.getMin(688.07)};
   height: auto;
   margin-block-start: ${({ theme }) => theme.getMax(-10)};
   margin-inline-start: auto;

@@ -15,6 +15,8 @@ const Layout = ({
 
   const handleModal = () => { setModalOpen(current => !current); };
 
+  console.log(pageContext.content);
+
   return (
     <LayoutProvider value={{
       isModalOpen,
@@ -24,10 +26,13 @@ const Layout = ({
     >
       <Theme>
         <GlobalStyle />
-        <Header />
+        <Header {...pageContext.options.navigation} />
         {children}
         <Modal {...pageContext.options.whereToBuyModal} />
-        <Footer {...pageContext.options.globalFooter} />
+        <Footer
+          {...pageContext.options.globalFooter} {...pageContext.options.navigation}
+          shouldShowFootnotes={pageContext.content.shouldShowFootnotes} toggleModal={handleModal}
+        />
       </Theme>
     </LayoutProvider>
   );
