@@ -97,5 +97,5 @@
   "bugs": {
     "url": "https://github.com/kjhank/gatsby-styled-components/issues"
   },
-  "packageManager": "pnpm@8.7.1"
+  "packageManager": "yarn@3.1.0"
 }
