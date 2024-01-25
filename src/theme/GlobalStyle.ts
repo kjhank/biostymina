@@ -116,16 +116,17 @@ export const GlobalStyle = createGlobalStyle`
   main,
   menu,
   nav,
+  picture,
   section {
     display: block;
   }
 
   body {
     min-height: 100vh;
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
     font-family: sans-serif;
     line-height: 1.2;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
   }
 
   ol[class],

@@ -3,10 +3,9 @@ import { Meta } from '@/components/Layout/components/Meta';
 import {
   Articles, Dosage, Ingredients, Instructions, Intro, Recommendations, Warnings,
 } from '@/components/pages/Product';
-import * as mocks from '@/mocks/Product.mocks';
 import { type ProductPageProps } from '@/types/pages.types';
 
-const ProductPage = ({ pageContext: { content } }: ProductPageProps) => (
+const ProductPage = ({ pageContext: { content, options } }: ProductPageProps) => (
   <main>
     <PageHeader
       {...content.pageHeader} className="product-header"
@@ -17,7 +16,7 @@ const ProductPage = ({ pageContext: { content } }: ProductPageProps) => (
     <Dosage {...content.dosage} />
     <Instructions {...content.instructionSection} />
     <Warnings {...content.warnings} />
-    <Articles {...mocks.articles} />
+    <Articles {...options.articles} />
   </main>
 );
 

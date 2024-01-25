@@ -18,13 +18,15 @@ export const Aloe = ({
     ],
   });
 
+  const linkPath = new URL(link.url).pathname;
+
   return (
     <Section className="aloe-section">
       <Container>
         <Brow>{brow}</Brow>
         <SectionHeading>{heading}</SectionHeading>
         <Text dangerouslySetInnerHTML={{ __html: sanitizedText }} />
-        <ButtonLink to={link.url}>{link.title}</ButtonLink>
+        <ButtonLink to={linkPath}>{link.title}</ButtonLink>
         <WPImage
           alt="aloes" className="aloe-section-decoration"
           imageData={decoration}

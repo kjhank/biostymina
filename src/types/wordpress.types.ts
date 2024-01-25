@@ -203,6 +203,114 @@ export type SEO = {
   };
 };
 
+export type FeaturedMedia = {
+  id: number;
+  date: string;
+  slug: string;
+  type: string;
+  link: string;
+  title: {
+    rendered: string;
+  };
+  author: number;
+  acf: Array<any>;
+  caption: {
+    rendered: string;
+  };
+  alt_text: string;
+  media_type: string;
+  mime_type: string;
+  media_details: {
+    width: number;
+    height: number;
+    file: string;
+    filesize: number;
+    sizes: {
+      medium: {
+        file: string;
+        width: number;
+        height: number;
+        filesize: number;
+        mime_type: string;
+        source_url: string;
+      };
+      large: {
+        file: string;
+        width: number;
+        height: number;
+        filesize: number;
+        mime_type: string;
+        source_url: string;
+      };
+      thumbnail: {
+        file: string;
+        width: number;
+        height: number;
+        filesize: number;
+        mime_type: string;
+        source_url: string;
+      };
+      medium_large: {
+        file: string;
+        width: number;
+        height: number;
+        filesize: number;
+        mime_type: string;
+        source_url: string;
+      };
+      '1536x1536': {
+        file: string;
+        width: number;
+        height: number;
+        filesize: number;
+        mime_type: string;
+        source_url: string;
+      };
+      full: {
+        file: string;
+        width: number;
+        height: number;
+        mime_type: string;
+        source_url: string;
+      };
+    };
+    image_meta: {
+      aperture: string;
+      credit: string;
+      camera: string;
+      caption: string;
+      created_timestamp: string;
+      copyright: string;
+      focal_length: string;
+      iso: string;
+      shutter_speed: string;
+      title: string;
+      orientation: string;
+      keywords: Array<any>;
+    };
+  };
+  source_url: string;
+  _links: {
+    self: Array<{
+      href: string;
+    }>;
+    collection: Array<{
+      href: string;
+    }>;
+    about: Array<{
+      href: string;
+    }>;
+    author: Array<{
+      embeddable: boolean;
+      href: string;
+    }>;
+    replies: Array<{
+      embeddable: boolean;
+      href: string;
+    }>;
+  };
+}
+
 export type Page = {
   acf: PageACF;
   author: number;
@@ -264,4 +372,59 @@ export type Page = {
       templated: boolean;
     }>;
   };
+  _embedded: {
+    author: Array<{
+      id: number;
+      name: string;
+      url: string;
+      description: string;
+      link: string;
+      slug: string;
+      avatar_urls: {
+        '24': string;
+        '48': string;
+        '96': string;
+      };
+      acf: Array<any>;
+      _links: {
+        self: Array<{
+          href: string;
+        }>;
+        collection: Array<{
+          href: string;
+        }>;
+      };
+    }>;
+    'wp:featuredmedia': Array<FeaturedMedia>;
+    'wp:term': Array<
+      Array<{
+        id: number;
+        link: string;
+        name: string;
+        slug: string;
+        taxonomy: string;
+        acf: Array<any>;
+        _links: {
+          self: Array<{
+            href: string;
+          }>;
+          collection: Array<{
+            href: string;
+          }>;
+          about: Array<{
+            href: string;
+          }>;
+          'wp:post_type': Array<{
+            href: string;
+          }>;
+          curies: Array<{
+            name: string;
+            href: string;
+            templated: boolean;
+          }>;
+        };
+      }>
+    >;
+  };
+
 };

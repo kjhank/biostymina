@@ -1,21 +1,34 @@
-// import { type ReactNode } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 import {
- type ArticlesList, type ArticleThumb, type NavLink,
+  type ACFLink, type ArticlesList,
+  type Page, type Prettify,
 } from '@/types';
 
-export type ArticlesListProps = {
+export type ArticlesListProps = Prettify<{
   heading: string;
+  isPaginated?: boolean;
 } & (
-  {
-    brow?: string;
-    headingAsBrow?: never;
-  } | {
-    brow?: never;
-    headingAsBrow: boolean;
-  }
-) & ArticlesList
+    {
+      brow?: string;
+      headingAsBrow?: never;
+    } | {
+      brow?: never;
+      headingAsBrow: boolean;
+    }
+  ) & ArticlesList>
 
 export type ArticlesProps = {
-  articles: Array<ArticleThumb>;
-  more: NavLink;
+  isPaginated: boolean;
+  list: Array<Page>;
+  more: ACFLink;
 };
+
+export type ArticleProps = Page;
+
+export type PaginatedArticlesProps = {
+  list: Array<Page>;
+}
+
+export type PaginationButtonPropsStyled = ComponentPropsWithoutRef<'button'> & {
+  $isCurrent?: boolean;
+}

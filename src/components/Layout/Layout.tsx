@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { GlobalStyle, Theme } from '@/theme';
 import { type LayoutProps } from './Layout.types';
 import {
- Footer, Header, Modal,
+  Footer, Header, Modal,
 } from './components';
 import { LayoutProvider } from './Layout.context';
 import '@/theme/fonts/stylesheet.css';

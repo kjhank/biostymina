@@ -1,5 +1,7 @@
 import { type ReactNode } from 'react';
-import { type ACFFile } from './wordpress.types';
+import {
+ type ACFFile, type ACFLink, type Page,
+} from './wordpress.types';
 import { type Slug } from '@/constants/constants.types';
 
 export type NavLink = {
@@ -7,17 +9,10 @@ export type NavLink = {
   url: string;
 };
 
-export type ArticleThumb = {
-  thumbnail: string;
-  timestamp: string;
-  title: string;
-  url: string;
-};
-
 export type ArticlesList = {
   heading: string;
-  list: Array<ArticleThumb>;
-  more: NavLink;
+  list: Array<Page>;
+  more: ACFLink;
 };
 
 export type Video = {
@@ -43,10 +38,14 @@ export type PageHeader = {
 
 export type Template = 'aloe' | 'history' | 'home' | 'product';
 
-export type Templates = Record<Slug, string>;
+export type Templates = Record<Slug | 'generic', string>;
 
 export type RequestParams = string |
   Array<Array<string>> |
   Record<string, string> |
   URLSearchParams |
   undefined;
+
+export type Prettify<T> = {
+  [K in keyof T]: T[K];
+} & Record<string, unknown>;
