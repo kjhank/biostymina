@@ -24,6 +24,7 @@ const templates: Templates = {
   'historia-marki': path.resolve('./src/templates/history.tsx'),
   odpornosc: path.resolve('./src/templates/articles.tsx'),
   'strona-glowna': path.resolve('./src/templates/home.tsx'),
+  'not-found': path.resolve('./src/templates/generic.tsx'),
 };
 
 const getRequestUrl = (endpoint: string, params?: RequestParams) => {

@@ -20,6 +20,11 @@ export const ModalWrapper = styled.dialog`
     background-color: rgb(255 255 255 / 30%);
     backdrop-filter: blur(15px);
   }
+
+  h2 {
+    font-size: ${({ theme }) => theme.getClamped(42)};
+    text-align: center;
+  }
 `;
 
 export const List = styled.ul`

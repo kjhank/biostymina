@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 
 import { GlobalStyle, Theme } from '@/theme';
 import { type LayoutProps } from './Layout.types';
@@ -11,28 +11,38 @@ import '@/theme/fonts/stylesheet.css';
 const Layout = ({
   children, location, pageContext,
 }: LayoutProps) => {
-  const [isModalOpen, setModalOpen] = useState(false);
+  const modalRef = useRef<HTMLDialogElement>(null);
 
-  const handleModal = () => { setModalOpen(current => !current); };
+  const handleModal = () => {
+    const { current: dialogNode } = modalRef;
 
-  console.log(pageContext.content);
+    if (dialogNode) {
+      if (dialogNode.open) {
+        dialogNode.close();
+      } else {
+        dialogNode.showModal();
+      }
+    }
+  };
 
   return (
     <LayoutProvider value={{
-      isModalOpen,
       location,
       toggleModal: handleModal,
     }}
     >
       <Theme>
         <GlobalStyle />
-        <Header {...pageContext.options.navigation} />
+        {pageContext.options?.navigation && <Header {...pageContext.options.navigation} />}
         {children}
-        <Modal {...pageContext.options.whereToBuyModal} />
-        <Footer
-          {...pageContext.options.globalFooter} {...pageContext.options.navigation}
-          shouldShowFootnotes={pageContext.content.shouldShowFootnotes} toggleModal={handleModal}
-        />
+        {pageContext.options?.whereToBuyModal
+        && <Modal ref={modalRef} {...pageContext.options.whereToBuyModal} />}
+        {pageContext.options?.globalFooter && (
+          <Footer
+            {...pageContext.options.globalFooter} {...pageContext.options.navigation}
+            shouldShowFootnotes={pageContext.content.shouldShowFootnotes} toggleModal={handleModal}
+          />
+        )}
       </Theme>
     </LayoutProvider>
   );

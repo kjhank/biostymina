@@ -25,6 +25,7 @@ export const Header = ({ modalTriggerLabel, navItems }: HeaderProps) => {
     const { current: headerNode } = headerRef;
 
     if (headerNode) {
+      handleScroll();
       window.addEventListener('scroll', handleScroll);
     }
 
