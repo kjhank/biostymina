@@ -18,17 +18,27 @@ export const Item = styled.li`
   flex-direction: column;
   gap: ${({ theme }) => theme.getMin(20)};
   box-shadow: rgb(0 0 0 / 6%) 0 15px 35px;
-  border-radius: 30px;
+  border-radius: ${({ theme }) => theme.getMin(30)};;
   padding: 5.4%;
   transition: ${({ theme }) => `box-shadow ${theme.transitions.fast}`};
 
   &:hover {
     box-shadow: rgb(0 0 0 / 6%) 0 30px 35px;
+
+    a:has(svg) {
+      width: ${({ theme }) => theme.getMin(130)};
+      background-color: ${({ theme }) => theme.colors.highlight};
+      color: #fff;
+
+      > svg {
+        translate: 150% 0;
+      }
+    }
   }
 
   .article-thumbnail {
     overflow: hidden;
-    border-radius: 30px;
+    border-radius: ${({ theme }) => theme.getMin(30)};;
     aspect-ratio: 1.64;
 
     > img {
@@ -72,16 +82,6 @@ export const Link = styled(ButtonLink)`
   > svg {
     stroke: currentColor;
     transition: ${({ theme }) => `stroke ${theme.transitions.default}, translate ${theme.transitions.default}`};
-  }
-
-  &:hover {
-    width: ${({ theme }) => theme.getMin(130)};
-    background-color: ${({ theme }) => theme.colors.highlight};
-    color: #fff;
-
-    > svg {
-      translate: 150% 0;
-    }
   }
 `;
 

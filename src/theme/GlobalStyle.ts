@@ -123,6 +123,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
+    background-color: #fff;
     font-family: sans-serif;
     line-height: 1.2;
     scroll-behavior: smooth;

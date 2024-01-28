@@ -16,9 +16,9 @@ const config: GatsbyConfig = {
       options: {
         background_color: '#285c3f',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png',
+        icon: 'src/images/favicon.svg',
         name: 'Biostymina',
-        short_name: 'foo',
+        short_name: 'biostymina',
         start_url: '/',
         theme_color: '#285c3f', // TODO: set these up 👆
       },

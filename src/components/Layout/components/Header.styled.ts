@@ -29,12 +29,13 @@ export const HeaderNode = styled.header<HeaderPropsStyled>`
   inset: 0 0 auto;
   z-index: 10;
   padding-block: ${({ theme }) => theme.getMin(42)};
-  background-color: ${({ $isFilled }) => ($isFilled ? '#fff' : 'transparent')};
+  background-color: ${({ $isFilled }) => ($isFilled ? 'rgb(255 255 255 / 0.75)' : 'transparent')};
+  backdrop-filter: ${({ $isFilled }) => ($isFilled ? 'blur(25px)' : 'none')};
   font-weight: 600;
   font-size: ${({ theme }) => theme.getClamped(20)};
   font-family: ${({ theme }) => theme.fonts.heading};
   text-transform: uppercase;
-  transition: ${({ theme }) => `background-color ${theme.transitions.fast}`};
+  transition: ${({ theme }) => `background-color ${theme.transitions.fast}, backdrop-filter ${theme.transitions.fast}`};
 `;
 
 export const HomeLink = styled(Link)`

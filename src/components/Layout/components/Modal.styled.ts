@@ -4,7 +4,7 @@ export const ModalWrapper = styled.dialog`
   position: fixed;
   inset: calc(1em + 3px) 0 auto;
   width: min(60vw, 100%);
-  border-radius: 30px;
+  border-radius: ${({ theme }) => theme.getMin(30)};;
   padding: 2.5% 5%;
   color: ${({ theme }) => theme.colors.brand};
 
@@ -53,7 +53,7 @@ export const Item = styled.li`
   gap: ${({ theme }) => theme.getMin(11)};
   aspect-ratio: 1;
   box-shadow: rgb(0 0 0 / 6%) 0 15px 35px;
-  border-radius: 30px;
+  border-radius: ${({ theme }) => theme.getMin(30)};;
   padding: 10% 5.4%;
   transition: ${({ theme }) => `box-shadow ${theme.transitions.fast}`};
 

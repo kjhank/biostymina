@@ -1,3 +1,4 @@
+import { Link as GatsbyLink } from 'gatsby';
 import { Arrow } from '@/icons';
 import {
   Item, Link, Timestamp, Title,
@@ -10,19 +11,24 @@ export const Article = ({
   acf, title, date, slug,
 }: ArticleProps) => {
   const formattedTimestamp = formatDate(date);
+  const linkPath = `/odpornosc/${slug}`;
 
   return (
     <Item>
       {acf.articledata?.headerImage && (
-      <WPImage
-        alt="" className="article-thumbnail"
-        imageData={acf.articledata?.headerImage}
-      />
-)}
-      <Title>{title.rendered}</Title>
+        <GatsbyLink to={linkPath}>
+          <WPImage
+            alt="" className="article-thumbnail"
+            imageData={acf.articledata?.headerImage}
+          />
+        </GatsbyLink>
+      )}
+      <Title>
+        <GatsbyLink to={linkPath}>{title.rendered}</GatsbyLink>
+      </Title>
       <Timestamp dateTime={date}>{formattedTimestamp}</Timestamp>
       <Link
-        aria-label={`otwórz artykuł "${title.rendered}"`} to={`/odpornosc/${slug}`}
+        aria-label={`otwórz artykuł "${title.rendered}"`} to={linkPath}
         variant="bright"
       >
         <Arrow />

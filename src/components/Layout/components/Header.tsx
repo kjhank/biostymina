@@ -18,7 +18,7 @@ export const Header = ({ modalTriggerLabel, navItems }: HeaderProps) => {
   const handleScroll = () => {
     const { height: headerHeight } = headerRef.current?.getBoundingClientRect() ?? { height: 0 };
 
-    setIsScrolled(headerHeight / 2 < window.scrollY);
+    setIsScrolled(headerHeight / 3 < window.scrollY);
   };
 
   useEffect(() => {

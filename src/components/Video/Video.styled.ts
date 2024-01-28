@@ -20,7 +20,7 @@ export const Player = styled.video.attrs({ controls: true })`
   display: block;
   width: 100%;
   box-shadow: ${({ theme }) => `${theme.getMin(20)} ${theme.getMin(100)} ${theme.getMin(60)} ${theme.getMin(10)} rgba(0 0 0 / 10%)`};
-  border-radius: 61px;
+  border-radius: ${({ theme }) => theme.getMin(61)};
   cursor: pointer;
 `;
 
