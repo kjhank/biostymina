@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { type HomeSectionStyledProps } from './Home.types';
 import { Container } from '../../Container/Container';
+import { queries } from '@/utils';
 
 export const Section = styled.section<HomeSectionStyledProps>`
   h2 {
@@ -13,6 +14,18 @@ export const Section = styled.section<HomeSectionStyledProps>`
       inset: ${({ theme }) => `${theme.getMax(-222)} auto auto ${theme.getMin(475.9)}`};
       z-index: -1;
       inline-size: ${({ theme }) => theme.getMin(1509)};
+
+      /* stylelint-disable-next-line media-query-no-invalid */
+      @media ${queries.m} {
+        inset: ${({ theme }) => `${theme.getMax(-180)} auto auto ${theme.getMin(800)}`};
+        inline-size: ${({ theme }) => theme.getMin(1200)};
+      }
+
+      /* stylelint-disable-next-line media-query-no-invalid */
+      @media ${queries.s} {
+        position: static;
+        inline-size: 100%;
+      }
     }
 
     a {
@@ -41,6 +54,11 @@ export const Section = styled.section<HomeSectionStyledProps>`
     p {
       margin-block: ${({ theme }) => theme.getMin(31)};
       padding-inline-end: 50%;
+      white-space: initial;
+
+      > strong {
+        display: inline-block;
+      }
     }
 
     h2 {

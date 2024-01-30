@@ -7,12 +7,13 @@ export const linkStyles = css<ButtonStyledProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  height: ${({ $size }) => ($size === 'small' ? '48px' : '70px')};
+  height: ${({ $size, theme }) => theme.getMin($size === 'small' ? 48 : 70)};
   outline: 2px solid transparent;
   outline-offset: -2px;
   border-radius: ${({ $size }) => ($size === 'regular' ? '35px' : '24px')};
   background-color: ${({ theme, $variant }) => ($variant === 'dark' ? theme.colors.brand : theme.colors.highlight)};
   color: #fff;
+  font-size: ${({ theme }) => theme.getClamped(18)};
   font-family: ${({ theme }) => theme.fonts.heading};
   transition: ${({ theme }) => `background-color ${theme.transitions.fast}, outline-color ${theme.transitions.default}, outline-offset ${theme.transitions.fast}`};
   cursor: pointer;

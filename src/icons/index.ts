@@ -14,3 +14,5 @@ export { default as Leaves } from './leaves.svg';
 export { default as Syringe } from './syringe.svg';
 // @ts-expect-error: borked imports
 export { default as Silhouettes } from './silhouettes.svg';
+// @ts-expect-error: borked imports
+export { default as Lines } from './lines.svg';

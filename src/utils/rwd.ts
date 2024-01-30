@@ -1,6 +1,11 @@
 /* eslint-disable sort-keys */
 
-export const breakpoints = {
+export type Breakpoint = 'xxl' | 'xl' | 'l' | 'm' | 's' | 'xs' | 'xxs' | 'landscape' | 'nonTouch' | 'touch' | 'portrait';
+
+export type Breakpoints = Record<Breakpoint, number | string>
+export type Queries = Record<Breakpoint, string>;
+
+export const breakpoints: Breakpoints = {
   xxl: 1440,
   xl: 1280,
   l: 1024,
@@ -8,33 +13,21 @@ export const breakpoints = {
   s: 768,
   xs: 480,
   xxs: 360,
-};
-
-type Breakpoint = keyof typeof breakpoints;
-type MediaQueries = keyof typeof mediaQueries;
-
-const mediaQueries = {
   landscape: '(orientation: landscape)',
   nonTouch: '(pointer: fine)',
   touch: '(hover: none) and (pointer: coarse)',
   portrait: '(orientation: portrait)',
 };
 
-/* eslint-enable sort-keys */
+// @ts-expect-error: Object.entries key is string
+const queries: Queries = Object.fromEntries(Object.entries(breakpoints)
+  .map(([key, value]) => [key, typeof value === 'number' ? `(max-width: ${value}px)` : value]));
 
-const mfQueries = {
-  ...mediaQueries,
-};
-
-Object.keys(breakpoints).forEach(size => {
-  mediaQueries[size as MediaQueries] = `(max-width: ${breakpoints[size as Breakpoint]}px)`;
-});
-
-Object.keys(breakpoints).forEach(size => {
-  mfQueries[size as MediaQueries] = `(min-width: ${breakpoints[size as Breakpoint]}px)`;
-});
+  // @ts-expect-error: Object.entries key is string
+const mfQueries: Record<Breakpoint, string> = Object.fromEntries(Object.entries(breakpoints)
+  .map(([key, value]) => [key, typeof value === 'number' ? `(min-width: ${value}px)` : value]));
 
 export {
-  mediaQueries,
+  queries,
   mfQueries,
 };

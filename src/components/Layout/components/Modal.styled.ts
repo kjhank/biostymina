@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { queries } from '@/utils';
 
 export const ModalWrapper = styled.dialog`
   position: fixed;
   inset: calc(1em + 3px) 0 auto;
-  width: min(60vw, 100%);
+  width: min(60vw, 1440px);
   border-radius: ${({ theme }) => theme.getMin(30)};;
   padding: 2.5% 5%;
   color: ${({ theme }) => theme.colors.brand};
@@ -25,6 +26,22 @@ export const ModalWrapper = styled.dialog`
     font-size: ${({ theme }) => theme.getClamped(42)};
     text-align: center;
   }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    inset: calc(1em + 3px) 0;
+    width: 90vw;
+    padding: 5% 2.5%;
+
+    h2 {
+      font-size: 18px;
+    }
+
+    > button {
+      height: 2em;
+      inset: 1% 2% auto auto;
+    }
+  }
 `;
 
 export const List = styled.ul`
@@ -34,6 +51,11 @@ export const List = styled.ul`
   margin-block-start: ${({ theme }) => theme.getMin(20)};
   font-family: ${({ theme }) => theme.fonts.heading};
   text-align: center;
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const ImageWrapper = styled.div`

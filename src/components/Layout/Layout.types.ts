@@ -28,6 +28,7 @@ export type LayoutContextProviderProps = {
 export type HeaderProps = LayoutNav
 
 export type HeaderPropsStyled = {
+  $isDrawerOpen: boolean;
   $isFilled: boolean;
 };
 
@@ -36,3 +37,7 @@ export type ModalProps = ComponentPropsWithRef<'dialog'> & WhereToBuyModal;
 export type BlendWrapperStyledProps = {
   $isWhite?: boolean;
 };
+
+export type DrawerStyledProps = {
+  $isOpen: boolean;
+}
