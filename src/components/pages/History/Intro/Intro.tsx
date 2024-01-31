@@ -3,7 +3,7 @@ import { IntroSection, Text } from './Intro.styled';
 import { type IntroProps } from './Intro.types';
 
 export const Intro = ({
-  decoration, image, text,
+  decoration, image, imagePortrait, text,
 }: IntroProps) => (
   <IntroSection>
     <Container>

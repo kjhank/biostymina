@@ -55,8 +55,8 @@ const convertToRem = (value: string, root: number): number => {
 const toFixed = (value: number) => parseFloat(value.toFixed(4));
 
 // modified from https://github.com/walbo/font-size-clamp
-export const getClamped: GetClamped = (maxPx, minPx, rootPx) => {
-  const root = parseInt(`${rootPx ?? 16}px`, 10);
+export const getClamped: GetClamped = (maxPx, minPx, rootPx = 16) => {
+  const root = parseInt(`${rootPx}px`, 10);
 
   const minFontSize = convertToRem(`${minPx ?? maxPx / 2}px`, root);
   const maxFontSize = convertToRem(`${maxPx}px`, root);

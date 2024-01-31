@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { queries } from '@/utils';
 
 export const IntroNode = styled.section`
   margin-block: ${({ theme }) => theme.getMin(36)} 0;
@@ -8,6 +9,49 @@ export const List = styled.ul`
   display: flex;
   width: 73.3%;
   margin-inline: auto;
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    flex-direction: column;
+    gap: 2em;
+    width: 100%;
+    margin-block-start: 3em;
+
+    > li {
+      position: relative;
+      width: 100%;
+
+      p {
+        font-size: ${({ theme }) => theme.getClamped(28)};
+      }
+
+      &:first-of-type {
+        .intro-image {
+          position: absolute;
+          inset-inline-start: -5%;
+          width: 50%;
+        }
+
+        p {
+          inset-inline-start: 20%;
+          width: 80%;
+        }
+      }
+
+      &:last-of-type {
+        .intro-image {
+          position: absolute;
+          inset-inline-start: -5%;
+          width: 40%;
+        }
+
+        p {
+          inset-inline-start: 20%;
+          width: 80%;
+        }
+      }
+    }
+  }
 `;
 
 export const Item = styled.li`
@@ -17,6 +61,7 @@ export const Item = styled.li`
 
   .intro-image {
     flex-shrink: 0;
+    mix-blend-mode: multiply;
   }
 
   &:first-of-type {

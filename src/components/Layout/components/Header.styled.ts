@@ -14,7 +14,7 @@ export const Container = styled(GenericContainer)`
 
   /* stylelint-disable-next-line media-query-no-invalid */
   @media ${queries.s} {
-    width: 100%;
+    /* width: 100%; */
     margin: 0;
     padding: 0 8.26%;
     gap: 11.8%;
@@ -132,7 +132,8 @@ export const Drawer = styled.div<DrawerStyledProps>`
     position: absolute;
     z-index: -1;
     flex-direction: column;
-    width: 100%;
+
+    /* width: 100%; */
     height: 100vh;
 
     /* background-color: rgb(255 255 255); */

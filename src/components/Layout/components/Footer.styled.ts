@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { Container as GenericContainer } from '@/components';
 import backgroundImage from '@/images/layout/footer.png';
+import { queries } from '@/utils';
 
 export const Container = styled(GenericContainer)`
   b, strong {
@@ -20,6 +21,11 @@ export const FooterNode = styled.footer`
   a {
     color: ${({ theme }) => theme.colors.highlight};
   }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    margin-block-end: 0;
+  }
 `;
 
 export const FootnotesPart = styled.section`
@@ -30,6 +36,30 @@ export const FootnotesPart = styled.section`
 
   > svg {
     width: ${({ theme }) => theme.getMin(125)};
+  }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+
+    > article {
+      text-align: center;
+
+      &:first-of-type {
+        order: -1;
+      }
+
+      &:last-of-type {
+        padding: 5%;
+        white-space: normal;
+      }
+    }
+
+    > svg {
+      width: 40%;
+    }
   }
 `;
 
@@ -53,6 +83,91 @@ export const BottomWrapper = styled.div`
       order: 1;
       width: ${({ theme }) => theme.getMin(13)};
       background-color: #fff;
+    }
+  }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    width: 92%;
+    margin-inline: auto;
+    padding-inline: 10%;
+    border-start-start-radius: 9999px;
+    border-start-end-radius: 9999px;
+    padding-block-start: 20%;
+    background-size: 280vw;
+    background-repeat: no-repeat;
+    background-position-x: 35%;
+    background-position-y: 0;
+    text-align: center;
+    white-space: normal;
+
+    > .container {
+      flex-direction: column;
+      font-size: ${({ theme }) => theme.getClamped(24)};
+
+      &::before {
+        content: unset;
+      }
+    }
+
+    address {
+      padding-inline: 8%;
+
+      p + p {
+        margin-block-start: 1em;
+      }
+
+      p:first-child {
+        white-space: pre-line;
+      }
+
+      p:nth-child(2) {
+        a:last-child {
+          display: block;
+        }
+      }
+    }
+
+    section {
+      width: 100%;
+      padding: 0;
+
+      &:first-of-type {
+        .copyright {
+          display: none;
+        }
+      }
+
+      &:last-of-type {
+        > div {
+          flex-direction: column;
+          border: none;
+
+          > article {
+            border-inline: none;
+            border-block-end: 1px solid #fff;
+            padding: 2em 0;
+            white-space: pre-line;
+
+            &:first-of-type {
+              padding-inline: 8%;
+            }
+          }
+        }
+
+        .copyright {
+          display: block;
+        }
+      }
+
+      &::after,
+      &::before {
+        content: unset;
+      }
+    }
+
+    nav {
+      display: none;
     }
   }
 `;
@@ -117,6 +232,10 @@ export const RightPart = styled.section`
 export const LegalWrapper = styled.div`
   display: flex;
   border-block-end: 1px solid #fff;
+
+  > .copyright {
+    display: none;
+  }
 `;
 
 export const Navigation = styled.nav`

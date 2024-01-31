@@ -8,6 +8,29 @@ import historyHeaderBg from '@/images/history/headerBg.png';
 import aloeHeaderBg from '@/images/aloe/headerBg.png';
 // @ts-expect-error import types borked
 import articlesHeaderBg from '@/images/articles/headerBg.png';
+import { queries } from '@/utils';
+
+export const BlendWrapper = styled.div<BlendWrapperPropsStyled>`
+  grid-area: blend;
+  background-color: ${({ $isWhite }) => $isWhite && '#fff'};;
+  mix-blend-mode: ${({ $isWhite }) => $isWhite && 'lighten'};
+  isolation: isolate;
+
+  .container {
+    background-color: ${({ $isWhite }) => $isWhite && '#fff'};
+  }
+
+  .container + .container {
+    margin-block-start: ${({ theme }) => theme.getMin(11)};
+  }
+`;
+
+export const Title = styled.h1`
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.getClamped(60)};
+  font-family: ${({ theme }) => theme.fonts.heading};
+  text-align: center;
+`;
 
 export const Bubble = styled.div<BubblePropsStyled>`
   display: flex;
@@ -32,6 +55,10 @@ export const Bubble = styled.div<BubblePropsStyled>`
 
   &:has(h1) {
     justify-content: center;
+
+    a {
+      display: none;
+    }
   }
 `;
 
@@ -43,7 +70,7 @@ export const BubblesWrapper = styled.div`
 export const HeaderNode = styled.header`
   display: grid;
   grid-template-areas: 'blend';
-  place-content: end stretch;
+  place-content: start stretch;
   background-repeat: no-repeat;
 
   &.product-header {
@@ -298,26 +325,127 @@ export const HeaderNode = styled.header`
       }
     }
   }
-`;
 
-export const BlendWrapper = styled.div<BlendWrapperPropsStyled>`
-  grid-area: blend;
-  background-color: ${({ $isWhite }) => $isWhite && '#fff'};;
-  mix-blend-mode: ${({ $isWhite }) => $isWhite && 'lighten'};
-  isolation: isolate;
-
-  .container {
-    background-color: ${({ $isWhite }) => $isWhite && '#fff'};
+  .portrait {
+    display: none;
   }
 
-  .container + .container {
-    margin-block-start: ${({ theme }) => theme.getMin(11)};
-  }
-`;
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    position: relative;
+    margin-block-start: 33vw;
 
-export const Title = styled.h1`
-  font-weight: 500;
-  font-size: ${({ theme }) => theme.getClamped(60)};
-  font-family: ${({ theme }) => theme.fonts.heading};
-  text-align: center;
+    ${Bubble} {
+      height: 27.2vw;
+    }
+
+    .portrait {
+      position: absolute;
+      inset: auto 0 100%;
+      display: block;
+
+      > ${Bubble} {
+        justify-content: space-between;
+        width: 112vw;
+        margin-inline-start: -20vw;
+        padding-inline: 25vw 1em;
+
+        > h1 {
+          display: block;
+        }
+
+        > a {
+          display: flex;
+          height: unset;
+          padding: 0.6em 1.2em;
+          font-size: ${({ theme }) => theme.getClamped(30)};
+        }
+      }
+    }
+
+    ${BubblesWrapper} {
+      gap: 3vw;
+
+      ${Bubble} {
+        border: none;
+
+        &.bubble-product-header,
+        &.bubble-aloe-header,
+        &.bubble-history-header,
+        &.bubble-articles-header {
+          flex-shrink: 0;
+          width: 71.72vw !important;
+          background-color: transparent;
+
+          > h1,
+          > a {
+            display: none !important;
+          }
+        }
+      }
+    }
+
+    &.product-header {
+      background-position-x: initial;
+      background-position-y: 40%;
+      background-size: 200vw;
+    }
+
+    &.aloe-header {
+      background-position-x: 65%;
+      background-position-y: 55%;
+      background-size: 200vw;
+    }
+
+    &.history-header {
+      background-position-x: 15%;
+      background-position-y: 15%;
+      background-size: 180vw;
+    }
+
+    &.articles-header {
+      background-position-x: 80%;
+      background-position-y: 75%;
+      background-size: 200vw;
+    }
+
+    ${BlendWrapper} {
+      > .container {
+        &:first-child {
+          margin-block: 3vw;
+        }
+
+        &:first-of-type {
+          ${Bubble} {
+            width: 71.72vw !important;
+            border: none;
+
+            &:nth-child(2) {
+              margin-inline-start: 4vw;
+            }
+
+            &:first-child,
+            &:last-child {
+              display: none;
+            }
+          }
+        }
+
+        &:last-of-type {
+          ${Bubble} {
+            width: 71.72vw !important;
+            border: none;
+
+            &:first-child {
+              display: none;
+            }
+
+            &:nth-child(2) {
+              margin-inline-start: -30vw;
+            }
+          }
+        }
+      }
+    }
+  }
 `;

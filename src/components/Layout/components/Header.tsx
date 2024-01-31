@@ -14,6 +14,7 @@ export const Header = ({ modalTriggerLabel, navItems }: HeaderProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const { location, toggleModal } = useLayout();
+  const pathnameRef = useRef(location?.pathname);
   const isScrolledDebounced = useDebounce(isScrolled, 200);
 
   const handleScroll = () => {
@@ -36,6 +37,13 @@ export const Header = ({ modalTriggerLabel, navItems }: HeaderProps) => {
 
     return () => { window?.removeEventListener('scroll', handleScroll); };
   }, [headerRef.current]);
+
+  useEffect(() => {
+    if (pathnameRef.current !== location?.pathname) {
+      setIsDrawerOpen(false);
+      pathnameRef.current = location?.pathname;
+    }
+  }, [location]);
 
   return (
     <HeaderNode

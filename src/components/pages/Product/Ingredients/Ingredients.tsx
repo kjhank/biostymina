@@ -25,6 +25,10 @@ export const Ingredients = ({
             <List>
               {descriptionList.map(({ item }) => <li key={item}>{item}</li>)}
             </List>
+            <WPImage
+              alt="ampułki z cieczką" className="ingredients-image-portrait"
+              imageData={image}
+            />
             <LargeText>{largeText}</LargeText>
             <List>
               {list.map(({ item }) => <li key={item}>{item}</li>)}

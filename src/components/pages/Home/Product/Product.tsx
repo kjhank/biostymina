@@ -7,7 +7,7 @@ import {
 import { ButtonLink, WPImage } from '@/components';
 
 export const Product = ({
-  brow, decoration, heading, image, link, text,
+  brow, decoration, heading, image, imagePortrait, link, text,
 }: ProductProps) => {
   const sanitizedText = sanitize(text, { allowedTags: ['sup'] });
   const sanitizedHeading = sanitize(heading, { allowedTags: ['br'] });
@@ -31,6 +31,10 @@ export const Product = ({
           <WPImage
             alt="opakowanie Biostymina" className="product-section-package"
             imageData={image} loading="eager"
+          />
+          <WPImage
+            alt="opakowanie Biostymina" className="product-section-package-portrait"
+            imageData={imagePortrait} loading="eager"
           />
         </ProductInner>
       </ProductContainer>

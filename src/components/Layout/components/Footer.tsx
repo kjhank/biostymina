@@ -41,7 +41,7 @@ export const Footer = ({
           <Address
             dangerouslySetInnerHTML={{ __html: sanitize(address, sanitizeConfig) }}
           />
-          <Copyright>{copyright}</Copyright>
+          <Copyright className="copyright">{copyright}</Copyright>
         </LeftPart>
         <RightPart>
           <LegalWrapper>
@@ -51,6 +51,7 @@ export const Footer = ({
             <Legal
               dangerouslySetInnerHTML={{ __html: sanitize(legal, sanitizeConfig) }}
             />
+            <Copyright className="copyright">{copyright}</Copyright>
           </LegalWrapper>
           <Navigation>
             {navItems.map(({ page }) => {

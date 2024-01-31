@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { type ImageListPropsStyled } from './ImageList.types';
 import listBackground from '../../images/components/image-list.png';
 import check from '../../images/components/check.png';
+import { queries } from '@/utils';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -13,11 +14,39 @@ export const Wrapper = styled.div`
   font-weight: 700;
   font-family: ${({ theme }) => theme.fonts.heading};
   isolation: isolate;
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    background-size: 300vw;
+    background-position-x: 60%;
+    background-position-y: 40%;
+    font-size: ${({ theme }) => theme.getClamped(28)};
+
+    > ul {
+      gap: 2.7vw;
+
+      > li {
+        padding: 5%;
+
+        > p {
+          height: 100%;
+          padding: 7%;
+          white-space: normal;
+
+          &::before {
+            width: 4em;
+            height: 4em;
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const List = styled.ul<ImageListPropsStyled>`
   display: grid;
   grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
   grid-area: list;
   background-color: ${({ $isWhite }) => $isWhite && '#fff'};
   mix-blend-mode: ${({ $isWhite }) => $isWhite && 'lighten'};

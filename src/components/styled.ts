@@ -11,7 +11,7 @@ export const StyledLink = styled(Link)`
   text-decoration: underline;
 `;
 
-export const Brow = styled.p<BrowProps>`
+export const Brow = styled.p.attrs({ className: 'brow' })<BrowProps>`
   font-weight: ${({ $isLighter }) => ($isLighter ? 500 : 600)};
   font-size: ${({ theme }) => theme.getClamped(42)};
   font-family: ${({ theme }) => theme.fonts.alt};

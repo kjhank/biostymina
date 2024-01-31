@@ -1,15 +1,6 @@
 import styled from 'styled-components';
 import { type BubblePropsStyled } from './Instructions.types';
-
-export const InstructionsSection = styled.section`
-  margin-block-end: ${({ theme }) => theme.getMin(241)};
-
-  > .container {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: ${({ theme }) => theme.getMin(10)};
-  }
-`;
+import { queries } from '@/utils';
 
 export const Bubble = styled.div<BubblePropsStyled>`
   flex-grow: 0;
@@ -100,4 +91,57 @@ export const ItemHeading = styled.h3`
 
 export const Text = styled.p`
   font-size: ${({ theme }) => theme.getClamped(30)};
+`;
+
+export const InstructionsSection = styled.section`
+  margin-block-end: ${({ theme }) => theme.getMin(241)};
+
+  > .container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: ${({ theme }) => theme.getMin(10)};
+  }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    text-align: center;
+
+    h2 {
+      white-space: normal;
+      padding-inline: 4%;
+    }
+
+    ${Description} {
+      font-size: ${({ theme }) => theme.getClamped(60)};
+    }
+
+    hr {
+      width: 55%;
+      border-block-start-width: 5px;
+      margin-block: 2em 1.5em;
+      margin-inline: auto;
+    }
+
+    ${Bubble} {
+      width: 100%;
+      padding: 0;
+      background-color: transparent;
+
+      &:first-child {
+        display: none;
+      }
+    }
+
+    ol {
+      > li {
+        &:first-child {
+          width: auto;
+        }
+
+        &:last-child {
+          width: auto;
+        }
+      }
+    }
+  }
 `;
