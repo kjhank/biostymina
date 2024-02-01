@@ -262,7 +262,7 @@ export const Section = styled.section<HomeSectionStyledProps>`
         margin-block: ${({ theme }) => `${theme.getMin(38)} ${theme.getMin(50)}`};
       }
 
-      > ul + a {
+      > ul + div + a {
         margin: ${({ theme }) => theme.getMin(66)} auto 0;
       }
     }
@@ -270,6 +270,9 @@ export const Section = styled.section<HomeSectionStyledProps>`
     /* stylelint-disable-next-line media-query-no-invalid */
     @media ${queries.s} {
       > .container {
+        width: 100%;
+        padding: 0;
+
         .brow {
           margin-block-end: 0.5em;
           padding-inline-end: 12%;

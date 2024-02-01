@@ -18,6 +18,11 @@ export const Intro = ({
         imageData={image}
         loading="eager"
       />
+      <WPImage
+        alt="opakowanie Biostyminy oraz dwie ampułki" className="history-intro-image-portrait"
+        imageData={imagePortrait}
+        loading="eager"
+      />
     </Container>
   </IntroSection>
 );

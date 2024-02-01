@@ -16,3 +16,5 @@ export { default as Syringe } from './syringe.svg';
 export { default as Silhouettes } from './silhouettes.svg';
 // @ts-expect-error: borked imports
 export { default as Lines } from './lines.svg';
+// @ts-expect-error: borked imports
+export { default as LongArrow } from './longArrow.svg';

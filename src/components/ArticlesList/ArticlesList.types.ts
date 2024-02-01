@@ -32,3 +32,13 @@ export type PaginatedArticlesProps = {
 export type PaginationButtonPropsStyled = ComponentPropsWithoutRef<'button'> & {
   $isCurrent?: boolean;
 }
+
+export type StyledListProps = {
+  $shouldScrollOnPortrait?: boolean;
+}
+
+export type StyledScrollButtonProps = {
+  $isFlipped?: boolean;
+}
+
+export type ScrollDirection = 'toStart' | 'toEnd';

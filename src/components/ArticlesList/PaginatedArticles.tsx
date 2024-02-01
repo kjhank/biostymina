@@ -28,7 +28,9 @@ export const PaginatedArticles = ({ list }: PaginatedArticlesProps) => {
     <>
       <List className="articles-list-paginated">
         {list.slice(startIndex, endIndex)
-          .map(article => <Article key={article.title.rendered} {...article} />)}
+          .map(article => (article?.id
+            ? <Article key={article.title.rendered} {...article} />
+            : null))}
       </List>
       {list.length > postsPerPage && (
         <Pagination>
@@ -39,16 +41,36 @@ export const PaginatedArticles = ({ list }: PaginatedArticlesProps) => {
             <Arrow />
           </PaginationButton>
           <PaginationList>
-            {paginationNumbers.map(number => (
-              <li key={number}>
-                <PaginationButton
-                  $isCurrent={number === currentPage}
-                  onClick={() => { handlePagination(number); }}
-                >
-                  {number}
-                </PaginationButton>
-              </li>
-            ))}
+            {paginationNumbers.map(number => {
+              const shouldRenderAll = paginationNumbers.length < postsPerPage;
+              const shouldRenderButton = number <= 2 || number >= paginationNumbers.length - 1;
+
+              if (shouldRenderAll) {
+                return (
+                  <li key={number}>
+                    <PaginationButton
+                      $isCurrent={number === currentPage}
+                      onClick={() => { handlePagination(number); }}
+                    >
+                      {number}
+                    </PaginationButton>
+                  </li>
+                );
+              }
+
+              return shouldRenderButton
+                ? (
+                  <li key={number}>
+                    <PaginationButton
+                      $isCurrent={number === currentPage}
+                      onClick={() => { handlePagination(number); }}
+                    >
+                      {number}
+                    </PaginationButton>
+                  </li>
+                )
+                : <li key={number}>●</li>;
+            })}
           </PaginationList>
           <PaginationButton
             disabled={currentPage === paginationNumbers.at(-1)}

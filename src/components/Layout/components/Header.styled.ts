@@ -120,6 +120,16 @@ export const NavLink = styled(Link) <NavLinkStyledProps>`
   &:hover::before {
     scale: 1 1;
   }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    &::before {
+      inset-block-end: -0.25em;
+      inset-inline-start: 25%;
+      width: 50%;
+      height: 5px;
+    }
+  }
 `;
 
 export const Drawer = styled.div<DrawerStyledProps>`

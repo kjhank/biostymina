@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 // @ts-expect-error borked import types
 import RawTL from '@/images/history/timeline.svg';
+import { queries } from '@/utils';
 
 export const TL = styled(RawTL)`
   position: absolute;
@@ -11,12 +12,6 @@ export const TL = styled(RawTL)`
   height: 100%;
   translate: -46% 0;
   pointer-events: none;
-`;
-
-export const TimelineSection = styled.section`
-  position: relative;
-  margin-block-end: ${({ theme }) => theme.getMin(113)};
-  z-index: 1;
 `;
 
 export const List = styled.ul`
@@ -43,6 +38,10 @@ export const Icon = styled.figure`
   color: #fff;
   isolation: isolate;
 
+  &.portrait {
+    display: none;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -64,6 +63,10 @@ export const Time = styled.time`
   font-weight: 700;
   font-size: ${({ theme }) => theme.getClamped(55)};
   white-space: pre-line;
+
+  &.portrait {
+    display: none;
+  }
 `;
 
 export const ItemInner = styled.div`
@@ -106,6 +109,82 @@ export const Item = styled.li`
 
     ${Time} {
       text-align: end;
+    }
+  }
+`;
+
+export const TimelineSection = styled.section`
+  position: relative;
+  margin-block-end: ${({ theme }) => theme.getMin(113)};
+  z-index: 1;
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    ${TL} {
+      display: none;
+    }
+
+    ${List} {
+      grid-auto-rows: unset;
+      padding: 0;
+      font-size: ${({ theme }) => theme.getClamped(32)};
+    }
+
+    ${Item} {
+      flex-direction: column;
+      gap: 0.5em;
+
+      ${ItemInner} {
+        justify-content: center;
+        width: 100%;
+        padding: 5% 10%;
+        white-space: normal;
+      }
+    }
+
+    ${Icon} {
+      display: none;
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 24.8vw;
+      height: 24.8vw;
+      margin-block-end: 0.5em;
+
+      &.portrait {
+        display: flex;
+
+        &::after {
+          translate: 28% 0;
+        }
+      }
+
+      > svg {
+        height: 70%;
+      }
+    }
+
+    ${Time} {
+      display: none;
+
+      &.portrait {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+        text-align: center;
+
+        &::before {
+          content: '';
+          display: grid;
+          width: 0.35em;
+          height: 0.35em;
+          outline: 2px solid black;
+          outline-offset: 0.25em;
+          border-radius: 999px;
+          background-color: ${({ theme }) => theme.colors.emphasis};
+          place-items: center;
+        }
+      }
     }
   }
 `;

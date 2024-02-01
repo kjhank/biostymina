@@ -13,6 +13,12 @@ export const TimelineItem = ({
 
   return (
     <Item>
+      <Icon className="portrait">
+        <IconComponent className={iconClass} />
+      </Icon>
+      <Time className="portrait">
+        {date}
+      </Time>
       <ItemInner>
         <p>
           {text}
