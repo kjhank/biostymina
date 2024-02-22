@@ -28,7 +28,7 @@ export const ModalWrapper = styled.dialog`
   }
 
   /* stylelint-disable-next-line media-query-no-invalid */
-  @media ${queries.s} {
+  @media ${queries.m} {
     inset: calc(1em + 3px) 0;
     width: 90vw;
     padding: 5% 2.5%;
@@ -48,6 +48,7 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${({ theme }) => theme.getMin(20)};
+  grid-auto-rows: 1fr;
   margin-block-start: ${({ theme }) => theme.getMin(20)};
   font-family: ${({ theme }) => theme.fonts.heading};
   text-align: center;
@@ -55,6 +56,16 @@ export const List = styled.ul`
   /* stylelint-disable-next-line media-query-no-invalid */
   @media ${queries.s} {
     grid-template-columns: repeat(2, 1fr);
+
+    li {
+      gap: 1em;
+    }
+
+    a {
+      padding-block: 1.5em;
+      padding-inline: 1em;
+      height: unset;
+    }
   }
 `;
 
@@ -73,7 +84,6 @@ export const Item = styled.li`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.getMin(11)};
-  aspect-ratio: 1;
   box-shadow: rgb(0 0 0 / 6%) 0 15px 35px;
   border-radius: ${({ theme }) => theme.getMin(30)};;
   padding: 10% 5.4%;

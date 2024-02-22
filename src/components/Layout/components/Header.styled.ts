@@ -74,10 +74,10 @@ export const HeaderNode = styled.header<HeaderPropsStyled>`
       position: absolute;
       z-index: -2;
       inset: auto 0 0;
-      height: calc(100vh);
+      height: calc(100vmax);
       background-color: rgb(255 255 255 / 75%);
       backdrop-filter: blur(25px);
-      translate: ${({ $isDrawerOpen }) => ($isDrawerOpen ? '0 calc(100vh - 10%)' : '')};
+      translate: ${({ $isDrawerOpen }) => ($isDrawerOpen ? '0 calc(100vmax - 10%)' : '')};
       transition: translate ${({ theme }) => theme.transitions.fast};
     }
   }
