@@ -1,54 +1,80 @@
 import {
   useEffect, useRef, useState,
 } from 'react';
-import { Logo } from '@/icons';
+import { Lines, Logo } from '@/icons';
 import {
-  Container, HeaderNode, HomeLink, List, Navigation, NavLink,
+  Container, Drawer, HeaderNode, HomeLink, List, Navigation, NavLink, Trigger,
 } from './Header.styled';
-import { navLinks } from '../Layout.static';
 import { ButtonLink } from '@/components/ButtonLink/ButtonLink';
 import { useDebounce, useLayout } from '@/hooks';
+import { type HeaderProps } from '../Layout.types';
 
-export const Header = () => {
+export const Header = ({ modalTriggerLabel, navItems }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const { location, toggleModal } = useLayout();
+  const pathnameRef = useRef(location?.pathname);
   const isScrolledDebounced = useDebounce(isScrolled, 200);
 
   const handleScroll = () => {
     const { height: headerHeight } = headerRef.current?.getBoundingClientRect() ?? { height: 0 };
 
-    setIsScrolled(headerHeight / 2 < window.scrollY);
+    setIsScrolled(headerHeight / 3 < window.scrollY);
+  };
+
+  const handleDrawer = () => {
+    setIsDrawerOpen(current => !current);
   };
 
   useEffect(() => {
     const { current: headerNode } = headerRef;
 
     if (headerNode) {
+      handleScroll();
       window.addEventListener('scroll', handleScroll);
     }
 
     return () => { window?.removeEventListener('scroll', handleScroll); };
   }, [headerRef.current]);
 
+  useEffect(() => {
+    if (pathnameRef.current !== location?.pathname) {
+      setIsDrawerOpen(false);
+      pathnameRef.current = location?.pathname;
+    }
+  }, [location]);
+
   return (
-    <HeaderNode $isFilled={isScrolledDebounced} ref={headerRef}>
+    <HeaderNode
+      $isDrawerOpen={isDrawerOpen} $isFilled={isScrolledDebounced}
+      ref={headerRef}
+    >
       <Container>
-        <Navigation>
-          <HomeLink to="/">
-            <Logo />
-          </HomeLink>
-          <List>
-            {navLinks.map(link => (
-              <li key={link.url}>
-                <NavLink $hasHighlight={location?.pathname === link.url} to={link.url}>
-                  {link.text}
-                </NavLink>
-              </li>
-            ))}
-          </List>
-        </Navigation>
-        <ButtonLink onClick={toggleModal} size="small">Gdzie kupić?</ButtonLink>
+        <HomeLink to="/">
+          <Logo />
+        </HomeLink>
+        <Trigger onClick={handleDrawer}>
+          <Lines />
+        </Trigger>
+        <Drawer $isOpen={isDrawerOpen}>
+          <Navigation>
+            <List>
+              {navItems.map(({ page }) => {
+                const linkPath = new URL(page.url).pathname;
+
+                return (
+                  <li key={page.url}>
+                    <NavLink $hasHighlight={location?.pathname === linkPath} to={linkPath}>
+                      {page.title}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </List>
+          </Navigation>
+          <ButtonLink onClick={toggleModal} size="small">{modalTriggerLabel}</ButtonLink>
+        </Drawer>
       </Container>
     </HeaderNode>
   );

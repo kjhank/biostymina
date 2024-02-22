@@ -10,7 +10,7 @@ export const HeaderNode = styled.header`
   .article-header-image {
     overflow: hidden;
     aspect-ratio: 3.36;
-    border-radius: 30px;
+    border-radius: ${({ theme }) => theme.getMin(30)};;
 
     > img {
       width: 100%;

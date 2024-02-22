@@ -5,8 +5,9 @@ import {
 } from './Articles.styled';
 import { Article } from './Article';
 import { Arrow } from '@/icons';
+import { isBrowser, queries } from '@/utils';
 
-const postsPerPage = 9;
+const postsPerPage = (isBrowser && window.matchMedia(queries.s).matches) ? 3 : 9;
 
 export const PaginatedArticles = ({ list }: PaginatedArticlesProps) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,36 +28,58 @@ export const PaginatedArticles = ({ list }: PaginatedArticlesProps) => {
     <>
       <List className="articles-list-paginated">
         {list.slice(startIndex, endIndex)
-          .map(article => <Article key={article.title.rendered} {...article} />)}
+          .map(article => (article?.id
+            ? <Article key={article.title.rendered} {...article} />
+            : null))}
       </List>
       {list.length > postsPerPage && (
-      <Pagination>
-        <PaginationButton
-          disabled={currentPage === 1}
-          onClick={() => { handlePagination(currentPage - 1); }}
-        >
-          <Arrow />
-        </PaginationButton>
-        <PaginationList>
-          {paginationNumbers.map(number => (
-            <li key={number}>
-              <PaginationButton
-                $isCurrent={number === currentPage}
-                onClick={() => { handlePagination(number); }}
-              >
-                {number}
-              </PaginationButton>
-            </li>
-          ))}
-        </PaginationList>
-        <PaginationButton
-          disabled={currentPage === paginationNumbers.at(-1)}
-          onClick={() => { handlePagination(currentPage + 1); }}
-        >
-          <Arrow />
-        </PaginationButton>
-      </Pagination>
-)}
+        <Pagination>
+          <PaginationButton
+            disabled={currentPage === 1}
+            onClick={() => { handlePagination(currentPage - 1); }}
+          >
+            <Arrow />
+          </PaginationButton>
+          <PaginationList>
+            {paginationNumbers.map(number => {
+              const shouldRenderAll = paginationNumbers.length < postsPerPage;
+              const shouldRenderButton = number <= 2 || number >= paginationNumbers.length - 1;
+
+              if (shouldRenderAll) {
+                return (
+                  <li key={number}>
+                    <PaginationButton
+                      $isCurrent={number === currentPage}
+                      onClick={() => { handlePagination(number); }}
+                    >
+                      {number}
+                    </PaginationButton>
+                  </li>
+                );
+              }
+
+              return shouldRenderButton
+                ? (
+                  <li key={number}>
+                    <PaginationButton
+                      $isCurrent={number === currentPage}
+                      onClick={() => { handlePagination(number); }}
+                    >
+                      {number}
+                    </PaginationButton>
+                  </li>
+                )
+                : <li key={number}>●</li>;
+            })}
+          </PaginationList>
+          <PaginationButton
+            disabled={currentPage === paginationNumbers.at(-1)}
+            onClick={() => { handlePagination(currentPage + 1); }}
+          >
+            <Arrow />
+          </PaginationButton>
+        </Pagination>
+      )}
     </>
   );
 };

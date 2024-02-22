@@ -21,9 +21,9 @@ import { type ACFImage, type ACFLink } from './wordpress.types';
 
 export type FooterKeys = 'address' | 'copyright' | 'finePrint' | 'legal' | 'registration' | 'warning';
 
-export type LayoutHeader = {
+export type LayoutNav = {
   modalTriggerLabel: string;
-  navItems: Array<any>;
+  navItems: Array<{ page: ACFLink }>;
 };
 
 export type PageMetadata = {
@@ -31,7 +31,10 @@ export type PageMetadata = {
   title: string;
 }
 
-export type GlobalFooter = Record<FooterKeys, string>;
+export type GlobalFooterProps = Prettify<Record<FooterKeys, string> & {
+  shouldShowFootnotes: boolean;
+  toggleModal: () => void;
+} & LayoutNav>;
 
 export type Pharmacy = {
   image: ACFImage;
@@ -46,14 +49,14 @@ export type WhereToBuyModal = {
 
 export type PageOptions = {
   articles: ArticlesList;
-  globalFooter: GlobalFooter;
-  layoutHeader: LayoutHeader;
+  globalFooter: GlobalFooterProps;
+  navigation: LayoutNav;
   whereToBuyModal: WhereToBuyModal;
 }
 
 export type PageContext<T = unknown> = {
   body: string;
-  content: { pageHeader: PageHeader };
+  content: { pageHeader: PageHeader; shouldShowFootnotes: boolean };
   metadata: PageMetadata;
   options: PageOptions;
 } & T;

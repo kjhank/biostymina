@@ -5,10 +5,8 @@ import {
   BottomWrapper, Container, Copyright, FinePrint, FooterNode, FootnotesPart,
   LeftPart, Legal, LegalWrapper, Navigation, Registration, RightPart, Safety,
 } from './Footer.styled';
-import { useLayout } from '@/hooks';
-import { navLinks, pathsWithFootnotes } from '../Layout.static';
 import { Manufacturer } from '@/icons';
-import { type GlobalFooter } from '@/types/pages.types';
+import { type GlobalFooterProps } from '@/types/pages.types';
 
 const sanitizeConfig: sanitize.IOptions = {
   allowedTags: [
@@ -22,46 +20,49 @@ const sanitizeConfig: sanitize.IOptions = {
 };
 
 export const Footer = ({
-  address, copyright, finePrint, legal, registration, warning,
-}: GlobalFooter) => {
-  const { location } = useLayout();
-
-  const shouldShowFootnotes = pathsWithFootnotes.includes(location?.pathname ?? '');
-
-  return (
-    <FooterNode>
+  address, copyright, finePrint, legal, modalTriggerLabel,
+  navItems, registration, shouldShowFootnotes, toggleModal, warning,
+}: GlobalFooterProps) => (
+  <FooterNode>
+    {shouldShowFootnotes && (
       <Container>
-        {shouldShowFootnotes && (
-          <FootnotesPart>
-            <Manufacturer />
-            <FinePrint
-              dangerouslySetInnerHTML={{ __html: sanitize(finePrint, sanitizeConfig) }}
-            />
-            <Safety>{warning}</Safety>
-          </FootnotesPart>
-        )}
-        <BottomWrapper>
-          <LeftPart>
-            <Address
-              dangerouslySetInnerHTML={{ __html: sanitize(address, sanitizeConfig) }}
-            />
-            <Copyright>{copyright}</Copyright>
-          </LeftPart>
-          <RightPart>
-            <LegalWrapper>
-              <Registration
-                dangerouslySetInnerHTML={{ __html: sanitize(registration, sanitizeConfig) }}
-              />
-              <Legal
-                dangerouslySetInnerHTML={{ __html: sanitize(legal, sanitizeConfig) }}
-              />
-            </LegalWrapper>
-            <Navigation>
-              {navLinks.map(link => <Link key={link.url} to={link.url}>{link.text}</Link>)}
-            </Navigation>
-          </RightPart>
-        </BottomWrapper>
+        <FootnotesPart>
+          <Manufacturer />
+          <FinePrint
+            dangerouslySetInnerHTML={{ __html: sanitize(finePrint, sanitizeConfig) }}
+          />
+          <Safety>{warning}</Safety>
+        </FootnotesPart>
       </Container>
-    </FooterNode>
-  );
-};
+    )}
+    <BottomWrapper>
+      <Container>
+        <LeftPart>
+          <Address
+            dangerouslySetInnerHTML={{ __html: sanitize(address, sanitizeConfig) }}
+          />
+          <Copyright className="copyright">{copyright}</Copyright>
+        </LeftPart>
+        <RightPart>
+          <LegalWrapper>
+            <Registration
+              dangerouslySetInnerHTML={{ __html: sanitize(registration, sanitizeConfig) }}
+            />
+            <Legal
+              dangerouslySetInnerHTML={{ __html: sanitize(legal, sanitizeConfig) }}
+            />
+            <Copyright className="copyright">{copyright}</Copyright>
+          </LegalWrapper>
+          <Navigation>
+            {navItems.map(({ page }) => {
+              const linkPath = new URL(page.url).pathname;
+
+              return <Link key={page.url} to={linkPath}>{page.title}</Link>;
+            })}
+            <button onClick={toggleModal} type="button">{modalTriggerLabel}</button>
+          </Navigation>
+        </RightPart>
+      </Container>
+    </BottomWrapper>
+  </FooterNode>
+);

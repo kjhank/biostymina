@@ -1,15 +1,7 @@
 import styled from 'styled-components';
 import { type BubblePropsStyled } from './Warnings.types';
 import bang from '@/images/product/bang.png';
-
-export const WarningSection = styled.section`
-  background-color: #fff;
-
-  > .container {
-    display: flex;
-    gap: ${({ theme }) => theme.getMin(11)};
-  }
-`;
+import { queries } from '@/utils';
 
 export const Bubble = styled.div<BubblePropsStyled>`
   border-radius: 9999px;
@@ -61,6 +53,46 @@ export const List = styled.ul`
 
     &::marker {
       content: '• ';
+    }
+  }
+`;
+
+export const WarningSection = styled.section`
+  background-color: #fff;
+
+  > .container {
+    display: flex;
+    gap: ${({ theme }) => theme.getMin(11)};
+  }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    margin-block: 8em 2em;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: ${({ theme }) => theme.getClamped(30)};
+    }
+
+    ${Bubble} {
+      &:has(ul) {
+        width: 100%;
+        margin-inline: auto;
+        padding-block: 4em 2em;
+        padding-inline: 5%;
+
+        &::before {
+          inset: 0 auto auto 50%;
+          translate: -50% -60%;
+        }
+      }
+
+      &:not(:has(ul)) {
+        display: none;
+      }
+
     }
   }
 `;

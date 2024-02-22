@@ -1,6 +1,8 @@
 import { type PageProps } from 'gatsby';
-import { type ReactNode } from 'react';
-import { type PageContext, type WhereToBuyModal } from '@/types/pages.types';
+import { type ComponentPropsWithRef, type ReactNode } from 'react';
+import {
+  type LayoutNav, type PageContext, type WhereToBuyModal,
+} from '@/types/pages.types';
 
 export type LayoutProps = {
   children: ReactNode;
@@ -23,8 +25,19 @@ export type LayoutContextProviderProps = {
   value: LayoutContextProps;
 }
 
+export type HeaderProps = LayoutNav
+
 export type HeaderPropsStyled = {
+  $isDrawerOpen: boolean;
   $isFilled: boolean;
 };
 
-export type ModalProps = WhereToBuyModal;
+export type ModalProps = ComponentPropsWithRef<'dialog'> & WhereToBuyModal;
+
+export type BlendWrapperStyledProps = {
+  $isWhite?: boolean;
+};
+
+export type DrawerStyledProps = {
+  $isOpen: boolean;
+}

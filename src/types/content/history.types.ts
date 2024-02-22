@@ -3,6 +3,7 @@ import { type ACFImage } from '../wordpress.types';
 export type HistoryIntro = {
   decoration: ACFImage;
   image: ACFImage;
+  imagePortrait: ACFImage;
   text: string;
 }
 

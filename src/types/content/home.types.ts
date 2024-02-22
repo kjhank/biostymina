@@ -13,6 +13,7 @@ export type Product = {
   decoration: ACFImage;
   heading: string;
   image: ACFImage;
+  imagePortrait: ACFImage;
   link: ACFLink;
   text: string;
 };
@@ -20,6 +21,7 @@ export type Product = {
 export type Aloe = {
   brow: string;
   decoration: ACFImage;
+  decorationPortrait: ACFImage;
   heading: string;
   link: ACFLink;
   text: string;
@@ -28,6 +30,7 @@ export type Aloe = {
 export type History = {
   brow: string;
   decoration: ACFImage;
+  decorationPortrait: ACFImage;
   heading: string;
   image: ACFImage;
   link: ACFLink;

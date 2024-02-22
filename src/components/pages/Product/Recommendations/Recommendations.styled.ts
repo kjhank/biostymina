@@ -1,6 +1,11 @@
 import styled from 'styled-components';
+import { queries } from '@/utils';
 
 export const RecommendationsSection = styled.section`
+  h2 {
+    font-family: ${({ theme }) => theme.fonts.heading};
+  }
+
   > .container {
     display: flex;
     flex-direction: column;
@@ -25,5 +30,37 @@ export const RecommendationsSection = styled.section`
     flex-grow: 0;
     flex-shrink: 0;
     width: 59.15%;
+  }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    h2 {
+      margin-block-end: 0.5em;
+      padding-inline: 10%;
+      font-size: ${({ theme }) => theme.getClamped(76)};
+      text-align: center;
+
+      &::after {
+        width: 32.45%;
+        height: 5px;
+        margin-block-start: 0.5em;
+        margin-inline: auto;
+      }
+    }
+
+    .container {
+      > div:has(.image-list) {
+        flex-direction: column-reverse;
+        align-items: center;
+
+        .recommendations-package {
+          width: 60%;
+        }
+      }
+    }
+
+    .image-list {
+      width: 100%;
+    }
   }
 `;

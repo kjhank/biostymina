@@ -7,7 +7,7 @@ import { type Aloe as AloeProps } from '@/types/content/home.types';
 import { Section, Text } from '../styled';
 
 export const Aloe = ({
-  brow, decoration, heading, link, text,
+  brow, decoration, decorationPortrait, heading, link, text,
 }: AloeProps) => {
   const sanitizedText = sanitize(text, {
     allowedTags: [
@@ -30,6 +30,10 @@ export const Aloe = ({
         <WPImage
           alt="aloes" className="aloe-section-decoration"
           imageData={decoration}
+        />
+        <WPImage
+          alt="aloes" className="aloe-section-decoration-portrait"
+          imageData={decorationPortrait}
         />
       </Container>
     </Section>

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { Brow as GenericBrow } from '@/components/styled';
 import { Container } from '@/components';
+import { queries } from '@/utils';
 
-export const Brow = styled(GenericBrow)`
+export const Brow = styled(GenericBrow).attrs({ className: 'brow/*  */' })`
   padding-inline-start: 1em;
   white-space: nowrap;
 
@@ -44,6 +45,23 @@ export const HistoryInner = styled.div`
 
   > div:not(.history-section-decoration) {
     width: 40.7%;
+
+    /* stylelint-disable-next-line media-query-no-invalid */
+    @media ${queries.s} {
+      width: 100%;
+
+      article {
+        padding: 0 11%;
+        font-size: ${({ theme }) => theme.getClamped(32)};
+        line-height: 1.3125;
+        text-align: center;
+        white-space: normal;
+
+        > p:last-child {
+          margin-block-start: 1em;
+        }
+      }
+    }
   }
 
   article {

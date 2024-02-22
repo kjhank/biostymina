@@ -3,22 +3,8 @@ import path from 'path';
 
 const config: GatsbyConfig = {
   plugins: [
-    'gatsby-plugin-image',
     'gatsby-plugin-tsconfig-paths',
     'gatsby-plugin-typescript',
-    // {
-    //   options: {
-    //     exclude: [
-    //       'node_modules',
-    //       '.cache',
-    //       'public',
-    //     ],
-    //     extensions: ['ts', 'tsx'],
-    //     // rulePaths: [gatsbyRequiredRules],
-    //     stages: ['develop'],
-    //   },
-    //   resolve: 'gatsby-plugin-eslint',
-    // },
     {
       options: {
         name: 'images',
@@ -26,17 +12,15 @@ const config: GatsbyConfig = {
       },
       resolve: 'gatsby-source-filesystem',
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
       options: {
-        background_color: '#663399',
+        background_color: '#285c3f',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png',
-        name: 'Untitled Gatsby project',
-        short_name: 'foo',
+        icon: 'src/images/favicon.svg',
+        name: 'Biostymina',
+        short_name: 'biostymina',
         start_url: '/',
-        theme_color: '#663399', // TODO: set these up 👆
+        theme_color: '#285c3f', // TODO: set these up 👆
       },
       resolve: 'gatsby-plugin-manifest',
     },
@@ -45,8 +29,8 @@ const config: GatsbyConfig = {
   ],
   siteMetadata: {
     author: '@kjhank',
-    description: 'Gatsby TS starter with Styled Components + ESLint',
-    title: 'Gatsby boilerplate',
+    description: 'Biostymina 2024',
+    title: 'Biostymina',
   },
 };
 

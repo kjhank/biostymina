@@ -1,4 +1,12 @@
 import styled from 'styled-components';
+import { queries } from '@/utils';
+
+export const Text = styled.p`
+  width: 38.1%;
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.getClamped(30)};
+  font-family: ${({ theme }) => theme.fonts.heading};
+`;
 
 export const IntroSection = styled.section`
   position: relative;
@@ -17,13 +25,39 @@ export const IntroSection = styled.section`
       align-self: flex-end;
       width: 34.18%;
       margin-block: 8% -8%;
+
+      &-portrait {
+        display: none;
+      }
     }
   }
-`;
 
-export const Text = styled.p`
-  width: 38.1%;
-  font-weight: 500;
-  font-size: ${({ theme }) => theme.getClamped(30)};
-  font-family: ${({ theme }) => theme.fonts.heading};
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    > .container {
+      flex-direction: column;
+
+      ${Text} {
+        width: 100%;
+        padding-inline: 8%;
+        font-size: ${({ theme }) => theme.getClamped(32)};
+        text-align: center;
+      }
+
+      .history-intro-decoration {
+        display: none;
+      }
+
+      .history-intro-image {
+        display: none;
+
+        &-portrait {
+          display: block;
+          width: 125vw;
+          margin-block: -30% -20%;
+          margin-inline-start: -20vw;
+        }
+      }
+    }
+  }
 `;

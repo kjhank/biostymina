@@ -22,6 +22,10 @@ export const Cultivation = ({
         />
         <Wrapper>
           <Brow $isLighter as="h2">{heading}</Brow>
+          <WPImage
+            alt="" className="cultivation-decoration-portrait"
+            imageData={decoration}
+          />
           <Description dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
           <Map />
         </Wrapper>

@@ -10,6 +10,12 @@ export const PageHeader = ({
    className, heading, hasLink, file: fileLink,
 }: PageHeaderProps) => (
   <HeaderNode className={className}>
+    <Container className="portrait">
+      <Bubble className="portrait-bubble">
+        <Title>{heading}</Title>
+        {hasLink && <ButtonLink href={fileLink.url}>{fileLink.text}</ButtonLink>}
+      </Bubble>
+    </Container>
     <BlendWrapper $isWhite>
       <Container>
         <BubblesWrapper className="bubbles-wrapper-1">

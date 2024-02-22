@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { forwardRef } from 'react';
 import { type ModalProps } from '../Layout.types';
 import {
   ImageWrapper,
@@ -8,24 +8,11 @@ import { useLayout } from '@/hooks';
 import { ButtonLink, WPImage } from '@/components';
 import { SectionHeading } from '@/components/styled';
 
-export const Modal = ({ heading, items }: ModalProps) => {
-  const modalRef = useRef<HTMLDialogElement>(null);
-  const { isModalOpen, toggleModal } = useLayout();
-
-  useEffect(() => {
-    const { current: dialogNode } = modalRef;
-
-    if (dialogNode) {
-      if (isModalOpen) {
-        dialogNode.showModal();
-      } else {
-        dialogNode.close();
-      }
-    }
-  }, [isModalOpen, modalRef]);
+export const Modal = forwardRef<HTMLDialogElement, ModalProps>(({ heading, items }, ref) => {
+  const { toggleModal } = useLayout();
 
   return (
-    <ModalWrapper ref={modalRef}>
+    <ModalWrapper ref={ref}>
       <ButtonLink aria-label="zamknij okno modalne" onClick={toggleModal}>╳</ButtonLink>
       <SectionHeading>
         {heading}
@@ -43,4 +30,6 @@ export const Modal = ({ heading, items }: ModalProps) => {
       </List>
     </ModalWrapper>
   );
-};
+});
+
+Modal.displayName = 'Modal';

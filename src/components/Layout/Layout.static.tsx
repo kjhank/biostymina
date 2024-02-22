@@ -6,19 +6,19 @@ export const htmlAttributes = { lang: 'pl' };
 export const navLinks: Array<NavLink> = [
   {
     text: 'Biostymina®',
-    url: '/biostymina',
+    url: '/biostymina/',
   },
   {
     text: 'Aloes drzewiasty',
-    url: '/aloes-drzewiasty',
+    url: '/aloes-drzewiasty/',
   },
   {
     text: 'Historia marki',
-    url: '/historia-marki',
+    url: '/historia-marki/',
   },
   {
     text: 'Odporność',
-    url: '/odpornosc',
+    url: '/odpornosc/',
   },
 ];
 

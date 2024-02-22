@@ -2,10 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   html {
-    overflow: auto;
     overflow-x: hidden;
     box-sizing: border-box;
     color: ${({ theme }) => theme.colors.brand};
+  }
+
+  main {
+    overflow-x: hidden;
   }
 
   *,
@@ -123,6 +126,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
+    background-color: #fff;
     font-family: sans-serif;
     line-height: 1.2;
     scroll-behavior: smooth;

@@ -3,7 +3,7 @@ import { IntroSection, Text } from './Intro.styled';
 import { type IntroProps } from './Intro.types';
 
 export const Intro = ({
-  decoration, image, text,
+  decoration, image, imagePortrait, text,
 }: IntroProps) => (
   <IntroSection>
     <Container>
@@ -16,6 +16,11 @@ export const Intro = ({
       <WPImage
         alt="opakowanie Biostyminy oraz dwie ampułki" className="history-intro-image"
         imageData={image}
+        loading="eager"
+      />
+      <WPImage
+        alt="opakowanie Biostyminy oraz dwie ampułki" className="history-intro-image-portrait"
+        imageData={imagePortrait}
         loading="eager"
       />
     </Container>

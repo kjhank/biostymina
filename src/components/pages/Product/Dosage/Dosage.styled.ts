@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { queries } from '@/utils';
 
 export const DosageSection = styled.section`
   .container {
@@ -12,6 +13,58 @@ export const DosageSection = styled.section`
     padding-inline-end: 1.9%;
     font-size: ${({ theme }) => theme.getClamped(62)};
     font-family: ${({ theme }) => theme.fonts.heading};
+  }
+
+  /* stylelint-disable-next-line media-query-no-invalid */
+  @media ${queries.s} {
+    margin-block-start: 4em;
+
+    .container {
+      .brow {
+        margin-block-end: 0.5em;
+        font-size: ${({ theme }) => theme.getClamped(76)};
+        text-align: center;
+
+        &::after {
+          width: 32.45%;
+          height: 5px;
+          margin-block-start: 0.5em;
+          margin-inline: auto;
+        }
+      }
+
+      > div {
+        flex-direction: column;
+
+        .dosage-decoration {
+          order: 3;
+          width: 160vw;
+          margin-inline-end: -30vw;
+        }
+      }
+
+      ul {
+        width: 100%;
+
+        > li {
+          h3 {
+            padding-inline: 10%;
+          }
+
+          .dosage-ampoule {
+            width: 35%;
+            inset-inline-end: 95%;
+          }
+
+          > div {
+            gap: 1.5em;
+
+            &::after {
+              inset-block-start: 22%;
+          }}
+        }
+      }
+    }
   }
 `;
 

@@ -21,6 +21,7 @@ export const articleSanitizeConfig: sanitize.IOptions = {
   allowedTags: [
     ...sanitizeConfig.allowedTags as Array<string>,
     'a',
+    'h2',
     'h3',
   ],
 };

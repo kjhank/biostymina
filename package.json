@@ -7,19 +7,16 @@
   "dependencies": {
     "dotenv": "^16.3.2",
     "gatsby": "^5.13.1",
-    "gatsby-plugin-image": "^3.13.0",
+    "gatsby-adapter-netlify": "^1.1.2",
     "gatsby-plugin-manifest": "^5.13.0",
     "gatsby-plugin-offline": "^6.13.0",
     "gatsby-plugin-react-svg": "^3.3.0",
-    "gatsby-plugin-sharp": "^5.13.0",
     "gatsby-plugin-styled-components": "^6.13.0",
     "gatsby-plugin-typescript": "^5.13.0",
     "gatsby-source-filesystem": "^5.13.0",
-    "gatsby-transformer-sharp": "^5.13.0",
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanitize": "^2.1.2",
     "sanitize-html": "^2.11.0",
     "styled-components": "^6.1.6"
   },
@@ -96,5 +93,5 @@
   "bugs": {
     "url": "https://github.com/kjhank/gatsby-styled-components/issues"
   },
-  "packageManager": "pnpm@8.7.1"
+  "packageManager": "yarn@3.1.0"
 }
