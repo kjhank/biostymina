@@ -4984,6 +4984,7 @@ __metadata:
     gatsby: ^5.13.1
     gatsby-adapter-netlify: ^1.1.2
     gatsby-plugin-eslint: ^4.0.4
+    gatsby-plugin-google-gtag: ^5.13.1
     gatsby-plugin-manifest: ^5.13.0
     gatsby-plugin-offline: ^6.13.0
     gatsby-plugin-react-svg: ^3.3.0
@@ -8607,6 +8608,20 @@ __metadata:
     eslint-webpack-plugin: ^2.4.3 || ^3 || ^4
     gatsby: ^2 || ^3 || ^4 || ^5
   checksum: 325c2283398da7cd1aaf0e06a1c92cea702fe31cea2c728e998d2295ac84cb788204cd1b64bc865422f4243c4177b5196f8af72697b97a88be129deef9777c85
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-google-gtag@npm:^5.13.1":
+  version: 5.13.1
+  resolution: "gatsby-plugin-google-gtag@npm:5.13.1"
+  dependencies:
+    "@babel/runtime": ^7.20.13
+    minimatch: ^3.1.2
+  peerDependencies:
+    gatsby: ^5.0.0-next
+    react: ^18.0.0 || ^0.0.0
+    react-dom: ^18.0.0 || ^0.0.0
+  checksum: a720c18461135dde378ece5165353cdff42a4a8e6522e0d49dccd6e45d3e22512443f670dac28c8089d67419999d6d91203549542b98b716a61c8ac2cc2f626e
   languageName: node
   linkType: hard
 
