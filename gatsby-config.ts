@@ -1,6 +1,11 @@
 import { type GatsbyConfig } from 'gatsby';
 import path from 'path';
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+
 const config: GatsbyConfig = {
   plugins: [
     'gatsby-plugin-tsconfig-paths',
@@ -26,6 +31,12 @@ const config: GatsbyConfig = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-svg',
+    {
+      options: {
+        trackingIds: [process.env.GATSBY_GTAG_ID],
+      },
+      resolve: 'gatsby-plugin-google-gtag',
+    }
   ],
   siteMetadata: {
     author: '@kjhank',
