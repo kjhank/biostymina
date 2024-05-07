@@ -44,6 +44,8 @@ const Layout = ({
           />
         )}
       </Theme>
+      {/* eslint-disable-next-line react/no-danger */}
+      <div dangerouslySetInnerHTML={{ __html: pageContext.metadata.cookies.markup }} />
     </LayoutProvider>
   );
 };

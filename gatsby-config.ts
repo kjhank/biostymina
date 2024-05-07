@@ -1,10 +1,10 @@
 import { type GatsbyConfig } from 'gatsby';
 import path from 'path';
+import dotenv from 'dotenv';
 
-require('dotenv').config({
+dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-
 
 const config: GatsbyConfig = {
   plugins: [
@@ -36,7 +36,7 @@ const config: GatsbyConfig = {
         trackingIds: [process.env.GATSBY_GTAG_ID],
       },
       resolve: 'gatsby-plugin-google-gtag',
-    }
+    },
   ],
   siteMetadata: {
     author: '@kjhank',
