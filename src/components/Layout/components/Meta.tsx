@@ -12,7 +12,7 @@ export const Meta = ({ title, cookies }: MetaProps) => (
       {' '}
       {title}
     </title>
-    <link href={cookies.css} rel="stylesheet" />
-    <script defer src={cookies.js} />
+    {cookies.css ? <link href={cookies.css} rel="stylesheet" /> : null}
+    {cookies.css ? <script defer src={cookies.js} /> : null}
   </>
   );

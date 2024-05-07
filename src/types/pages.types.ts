@@ -27,9 +27,9 @@ export type LayoutNav = {
 };
 
 export type Cookies = {
-  css: string;
-  js: string;
-  markup: string;
+  css?: string;
+  js?: string;
+  markup?: string;
 };
 
 export type PageMetadata = {
