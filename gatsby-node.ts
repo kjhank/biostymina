@@ -1,10 +1,11 @@
 import { type GatsbyNode } from 'gatsby';
 import * as dotenv from 'dotenv';
+
 import fetch from 'node-fetch';
 import path from 'path';
 import { endpoints } from './src/constants/endpoints';
-import {
-  type Page, type RequestParams, type Templates,
+import type {
+ Page, RequestParams, Templates,
 } from './src/types';
 import { paths } from './src/constants/paths';
 
@@ -73,6 +74,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions }) => {
   const allArticles: Array<Page> = await fetchData(endpoints.posts, undefined, undefined, true);
   const pages: Array<Page> = await fetchData(endpoints.pages);
   const options = await fetchData(endpoints.options);
+  const cookies = await fetchData(endpoints.cookies);
 
   const getPath = ({ slug, type }: Page) => {
     if (type === 'page') {
@@ -88,6 +90,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions }) => {
     const common = {
       body: data.content.rendered,
       metadata: {
+        cookies,
         date: data.date,
         title: data.title.rendered,
       },
@@ -124,7 +127,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions }) => {
 
   const { createPage } = actions;
 
-  // await Promise.all(
   [...pages, ...allArticles].forEach(page => {
     if (page === undefined) return;
 
@@ -138,7 +140,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions }) => {
       path: pagePath,
     });
   });
-  // );
 };
 
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {

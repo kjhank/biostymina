@@ -1,4 +1,4 @@
-export type Entity = 'options' | 'pages' | 'posts'
+export type Entity = 'cookies' | 'options' | 'pages' | 'posts'
 
 export type Endpoints = Record<Entity, string>;
 
