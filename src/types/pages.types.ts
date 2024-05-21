@@ -26,7 +26,14 @@ export type LayoutNav = {
   navItems: Array<{ page: ACFLink }>;
 };
 
+export type Cookies = {
+  css?: string;
+  js?: string;
+  markup?: string;
+};
+
 export type PageMetadata = {
+  cookies: Cookies;
   date: string;
   title: string;
 }
